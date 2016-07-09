@@ -1,0 +1,2 @@
+
+    $('*').removeClass('borderererzzz shaderererzzz bothemememzzz');

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+    body {
+        font-family: "helvetica neue";
+    }
+    
+    #jessieTheBody {
+        width: 200px;
+        /* height: 200px; */
+        overflow: hidden;
+    }
+    h1 {
+        text-align: right;
+        font-size: 15px;
+        font-weight: normal;
+    }
+    h1 span {
+        color: #666;
+    }
+    #borderererzzz {
+        position: relative;
+        width: 1rem;
+        height: 1rem;
+        background-color: white;
+        color: red;
+        border: 1px solid currentColor;
+        margin-bottom: .5rem;
+        padding: .5rem;
+        text-transform: uppercase;
+    }
+    #shaderererzzz {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        border: 1px solid transparent;
+        background-color: #ccc;
+        color: white;
+        padding: .5rem;
+        margin: 0 1rem;
+        text-transform: uppercase;
+    }
+     #bothemememzzz {
+        position: relative;
+        width: 1rem;
+        height: 1rem;
+        background-color: #ccc;
+        border: 1px solid red;
+        color: white;
+        padding: .5rem;
+        text-transform: uppercase;
+    }
+    input {
+        background-color: #eee;
+        border: 0;
+    }
+    input, button {
+        outline: 0;
+    }
+    input:focus, input:focus::-webkit-input-placeholder, button:focus {
+         background-color: lightpink !important;
+         color: white;
+    }
+    
+    #inputBorders {
+        width: 92%;
+        padding: .5rem;
+    }
+    
+    .btn-group {
+        font-size: 0;
+    }
+    
+    .btn {
+        display: inline-block;
+        color: white;
+        width: 50%;
+        border: 0;
+        margin-bottom: 1rem;
+        padding: .5rem 0;
+        text-transform: uppercase;
+    }
+    
+    .btn:first-child {
+        background-color: red;
+    }
+
+    .btn:last-child {
+         background-color: #ccc;
+    }
+    /* Helpers */
+    
+    .text-center {
+        text-align: center;
+    }
+    input.color {
+        padding: .5rem;
+    }
+    input.color:focus {
+        background-color: none;
+    }
+    .cp-app.alpha-bg-w.S.XS.light {
+        top: .5rem !important;
+        left: .5rem !important;
+    }
+
+    .is-hidden {
+        display: none;
+    }
+    .is-active:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -1px;
+        transform: translate3d(0, 0, 0);
+        border-bottom: 1px solid red;
+        height: 1.3rem;
+        width: 18px;
+    }
+    input, button {
+        transition: all .3s ease;
+    }
+    .selector-style:not(.is-hidden){
+        color: #333;
+        display: inline-block;
+        vertical-align: -webkit-baseline-middle;
+        margin-left: 1rem;
+    }
+
+    </style>
+</head>
+
+<body id="jessieTheBody">
+    <h1 class="text-center"><span>Have a</span> Looksee</h1>
+    <div class="form-group">
+        <input id="inputBorders" type="text" name="borders" placeholder="$(' Use jQuery Sizzle Selectors ')">
+        <div class="btn-group">
+            <button class="btn" id="submitBorders">Enter</button>
+            <button class="btn" id="clear">Clear</button>
+        </div>
+    </div><!-- .form-group -->
+
+    <div class="form-group selector-styles">
+        <button class="bordererer" id="borderererzzz"></button>
+        <button class="shadererer" id="shaderererzzz"></button>
+        <button class="bothememem" id="bothemememzzz"></button>
+        <div class="selector-style -border is-hidden">Border</div>
+        <div class="selector-style -shade is-hidden">Shade</div>
+        <div class="selector-style -both is-hidden">Border &amp; Shade</div>
+    </div><!-- .form-group.selector-styles -->
+
+    <script type="text/javascript" src="assets/js/vendor/jquery-2.2.3.min.js"></script>
+
+    <script type="text/javascript" src="popup.js"></script>
+
+</body>
+
+</html>

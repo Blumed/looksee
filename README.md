@@ -1,27 +1,29 @@
-#Install
 
-1. Download
-2. <a href="chrome://extensions/" target="_blank" />chrome://extensions/</a>
-3. Click Developer Mode in the top right
-4. Click load unpacked extension
-5. Refresh Page to Activate
+#Looksee
+Type in class's, id's, element's, anything that you would use in a `$('Selector')` to have a quick looksee at your layout. The idea here is to add borders and shaders on the fly.  You could add the styles and markup to your project and remove it later, but why do that when you could quickly target the markup you need to see. 
 
-#How it works
+Head to your favorite webpage and try these on for size:
 
-**Boxes**
-The boxes at the top indicate what kind of style to apply to your selectors. The red border creates, well a red border around your selector. Instead of border I used box-shadow so it won't disturb your layout. One down fall of this technique is there are a number of elements that will not respond to the box-shadow rule. The second box is a shader which uses a grey background color with a small amount of opacity so you can see how elements are layering. The final box are the two styles combined.
+`*` - Select everything inside the body
 
-**Selectors**
-The input field allows you to use sizzle syntax(how jQuery does it) and apply the style of your choosing. Here is an example. `*` would apply to all elements on the page and `.post > *` would apply to all elements inside the post class. Easy right?
+`p:even` - Select all even `p` tags
+
+`input[type="email"]` - Select all `input` tags with the type attribute email
+
+##Usecases
+1. Quickly identify specific markup on a webpage. Find all the header tags
+2. Have you ever viewed your project on a phone/tablet and the site was bigger than the viewport which allowed you to move the site left and right? I know it has happened to me once or twice. Looksee will help you find that pesky child element on the double!
 
 
-#Helpful 
+##Support
+If you're experiencing a bug and would be so lovely to report it. Please head over [here](https://github.com/Blumed/looksee/issues)
 
 ##Future Features
 
 - Ability to add multiple input fields and for each one to have a custom color.
 - Better UI.
-- Add window width to badge and maybe the badge changes colors at common breakpoints(bootstrap/foundation). Maybe people can can customize this at some point.
-- Make a new icon.
-- Make a website for it.
-- Figure out a solution for applying box-shadow to an image. 
+- Make a website for this here extension
+- Figure out a solution for applying box-shadow to an image
+- Connect options page for more user prefrences
+- Toggle borders on while hovering
+- Add help link to options page

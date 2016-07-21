@@ -2,10 +2,6 @@
 .borderererzzz {
   box-shadow:inset 0px 0px 0px 1px red;
 }
-// img.borderererzzz, 
-// svg.borderererzzz {
-// 	border: 1px solid red !important;
-// }
 .shaderererzzz {
 	background-color: rgba(2,2,2, .2);
 }

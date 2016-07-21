@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
 <head>
+    <title>Looksee</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <style type="text/css">
     body {
         font-family: 'Montserrat', helvetica neue, arial, sans-serif;
@@ -12,26 +14,33 @@
         /* height: 200px; */
         overflow: hidden;
     }
+    
     h1 {
         text-align: right;
         font-size: 15px;
         font-weight: normal;
     }
+    
     h1 span {
         color: #666;
     }
+    
     input {
         background-color: #eee;
         border: 0;
     }
-    input, button {
+    
+    input,
+    button {
         outline: 0;
         font-family: inherit;
     }
-
-    input:focus, input:focus::-webkit-input-placeholder, button:focus {
-         background-color: #999 !important;
-         color: white;
+    
+    input:focus,
+    input:focus::-webkit-input-placeholder,
+    button:focus {
+        background-color: #999 !important;
+        color: white;
     }
     
     #inputBorders {
@@ -56,29 +65,33 @@
     .btn:first-child {
         background-color: red;
     }
-
+    
     .btn:last-child {
-         background-color: #ccc;
+        background-color: #ccc;
     }
     /* Helpers */
     
     .text-center {
         text-align: center;
     }
+    
     input.color {
         padding: .5rem;
     }
+    
     input.color:focus {
         background-color: none;
     }
+    
     .cp-app.alpha-bg-w.S.XS.light {
         top: .5rem !important;
         left: .5rem !important;
     }
-
+    
     .is-hidden {
         display: none;
     }
+    
     .is-active:after {
         content: "";
         position: absolute;
@@ -89,46 +102,52 @@
         height: 1.3rem;
         width: 18px;
     }
+    
     .bordererer.is-active:after {
-    content: "";
-    position: absolute;
-    top: 17px;
-    left: 14px;
-    transform: translate3d(0, 0, 0);
-    border-bottom: 1px solid red;
-    height: 1rem;
-    width: 25px;
-    transform: rotate(45deg);
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 14px;
+        transform: translate3d(0, 0, 0);
+        border-bottom: 1px solid red;
+        height: 1rem;
+        width: 25px;
+        transform: rotate(45deg);
     }
+    
     .shadererer.is-active:after {
-    content: "";
-    position: absolute;
-    top: 27px;
-    left: 6px;
-    transform: translate3d(0, 0, 0);
-    border-bottom: 1px solid red;
-    height: 7px;
-    width: 17px;
-    transform: rotate(90deg);
+        content: "";
+        position: absolute;
+        top: 27px;
+        left: 6px;
+        transform: translate3d(0, 0, 0);
+        border-bottom: 1px solid red;
+        height: 7px;
+        width: 17px;
+        transform: rotate(90deg);
     }
+    
     .bothememem.is-active:after {
-    content: "";
-    top: 12px;
-    left: -19px;
-    transform: translate3d(0, 0, 0);
-    border-bottom: 1px solid red;
-    height: 22px;
-    width: 24px;
-    transform: rotate(-45deg);
+        content: "";
+        top: 12px;
+        left: -19px;
+        transform: translate3d(0, 0, 0);
+        border-bottom: 1px solid red;
+        height: 22px;
+        width: 24px;
+        transform: rotate(-45deg);
     }
-    input, button {
+    
+    input,
+    button {
         transition: all .3s ease;
     }
     /* Stylezzz */
+    
     .selector-styles {
         text-align: center;
     }
-
+    
     #borderererzzz {
         position: relative;
         width: 1.5rem;
@@ -140,6 +159,7 @@
         padding: .5rem;
         text-transform: uppercase;
     }
+    
     #shaderererzzz {
         position: relative;
         width: 24px;
@@ -151,7 +171,8 @@
         margin: 0 2rem;
         text-transform: uppercase;
     }
-     #bothemememzzz {
+    
+    #bothemememzzz {
         position: relative;
         width: 1.5rem;
         height: 1.5rem;
@@ -162,6 +183,7 @@
         text-transform: uppercase;
     }
     /* Stylezzz Texxxt*/
+    
     .styles-group {
         padding: .6rem;
         display: block;
@@ -170,10 +192,20 @@
         margin: 0 auto;
         overflow: hidden;
     }
-    .selector-style:not(.is-hidden){
+    
+    .selector-style:not(.is-hidden) {
         color: #333;
         text-transform: uppercase;
         text-align: center;
+    }
+    
+    .settings {
+        text-align: right;
+        display: block;
+    }
+    
+    img.settings_cog {
+        width: 10%;
     }
     </style>
 </head>
@@ -186,8 +218,8 @@
             <button class="btn" id="submitBorders">Enter</button>
             <button class="btn" id="clear">Clear</button>
         </div>
-    </div><!-- .form-group -->
-
+    </div>
+    <!-- .form-group -->
     <div class="form-group selector-styles">
         <button class="bordererer" id="borderererzzz"></button>
         <button class="shadererer" id="shaderererzzz"></button>
@@ -197,13 +229,13 @@
             <div class="selector-style -shade is-hidden">Shade</div>
             <div class="selector-style -both is-hidden">Both</div>
         </div>
-        
-    </div><!-- .form-group.selector-styles -->
-
+    </div>
+    <!-- .form-group.selector-styles -->
+    <a class="settings" title="More Settings" href="chrome-extension://odmfobglccgeeccegmpclofcbpfmilam/options.html">
+        <img src="assets/images/settings.svg" class="settings_cog">
+    </a>
     <script type="text/javascript" src="assets/js/vendor/jquery-2.2.3.min.js"></script>
-
     <script type="text/javascript" src="popup.js"></script>
-
 </body>
 
 </html>

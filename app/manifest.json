@@ -11,7 +11,8 @@
 
     "permissions": [
         "tabs", "<all_urls>",
-        "http://localhost/*"
+        "http://localhost/*",
+        "storage"
     ],
 
     "options_page": "options.html",

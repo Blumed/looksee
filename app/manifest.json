@@ -25,6 +25,8 @@
         "all_frames": true
     }],
 
+    "options_page": "options.html",
+
     "background": {
         "persistent": true,
         "scripts": ["background.js"]  },

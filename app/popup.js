@@ -1,38 +1,7 @@
 //first time use - picks border as first style to use
-if (!$('.selector-style.-border').hasClass('is-active')) {
-    $('.bordererer').addClass('is-active');
+if ($('input[type="checkbox"].checked' != false)) {
+    $("#borderererzzz").prop("checked", true);
 }
-
-function currentVisual() {
-    var $stylez = $('.selector-style.-border, .selector-style.-shade, .selector-style.-both'),
-        $bordered = $('.bordererer').hasClass('is-active'),
-        $shaded = $('.shadererer').hasClass('is-active'),
-        $bothed = $('.bothememem').hasClass('is-active'),
-        $border = $('.selector-style.-border'),
-        $shade = $('.selector-style.-shade'),
-        $both = $('.selector-style.-both');
-
-    //Wipe text clean before adding
-    $stylez.addClass('is-hidden');
-
-    if ($bordered) {
-        $border.removeClass('is-hidden');
-    }
-    if ($shaded) {
-        $shade.removeClass('is-hidden');
-    }
-    if ($bothed) {
-        $both.removeClass('is-hidden');
-    }
-};
-currentVisual();
-
-
-$('.selector-styles button').on('click', function() {
-    $('.selector-styles button').removeClass('is-active');
-    $(this).addClass('is-active');
-    currentVisual();
-});
 
 function makeItSoNumberOne() {
     chrome.tabs.executeScript({
@@ -52,6 +21,12 @@ function contentScript() {
     });
 }
 
+function allElements() {
+    chrome.tabs.executeScript({
+        file: 'allElements.js'
+    });
+}
+
 function removeClass() {
     chrome.tabs.executeScript({
         file: 'remove.js'
@@ -65,21 +40,10 @@ var app = {
         //Cache elements
         var customSelectors = document.getElementById('inputBorders'),
             customSelectorsInput = document.getElementById('submitBorders'),
+            allSelectors = document.getElementById('bordersAll'),
             removeSelectorsBtn = document.getElementById('clear'),
             removeCustomeSelectors = "";
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-80689849-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = 'https://ssl.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
 
         //Adding Selectors
         chrome.runtime.sendMessage({ fn: "getSelector" }, function(response) {
@@ -89,7 +53,9 @@ var app = {
                 //console.log("you are here" + customSelectors.value);
             } else {
                 customSelectors.value = response.selector;
-                var currentStyle = $('button.is-active').attr('id');
+
+                var currentStyle = $('input[type="checkbox"]:checked').attr('id');
+                console.log(currentStyle);
                 currentStyle = response.style;
             }
 
@@ -108,11 +74,22 @@ var app = {
         //Sends border or shader style to page
         customSelectorsInput.addEventListener('click', function() {
             //console.log('button click' + ' ' + customSelectors.value);
-            var currentStyle = $('button.is-active').attr('id');
+
+            var currentStyle = $('input[type="checkbox"]:checked').attr('id');
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
+        });
+
+        //Sends border or shader style to all Elements on the page
+        allSelectors.addEventListener('click', function() {
+            //console.log('button click' + ' ' + customSelectors.value);
+            var currentStyle = $('input[type="checkbox"]:checked').attr('id');
+
+            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
+            //Runs allElements script so background respnonse will activate selectors on current page
+            allElements();
         });
 
         //Removing Selectors

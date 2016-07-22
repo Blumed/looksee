@@ -4,6 +4,7 @@
 <head>
     <title>Looksee</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="assets/js/analytics.js"></script>
     <style type="text/css">
     body {
         font-family: 'Montserrat', helvetica neue, arial, sans-serif;
@@ -44,8 +45,8 @@
     }
     
     #inputBorders {
-        width: 92%;
-        padding: .8rem .5rem;
+        width: 70%;
+        padding: .5rem;
     }
     
     .btn-group {
@@ -57,7 +58,7 @@
         color: white;
         width: 50%;
         border: 0;
-        margin-bottom: 1rem;
+        /*margin-bottom: 1rem;*/
         padding: .5rem 0;
         text-transform: uppercase;
     }
@@ -68,6 +69,14 @@
     
     .btn:last-child {
         background-color: #ccc;
+    }
+    
+    #submitBorders {
+        width: 22%;
+    }
+    
+    .form-group {
+        font-size: 0;
     }
     /* Helpers */
     
@@ -91,8 +100,7 @@
     .is-hidden {
         display: none;
     }
-    
-    .is-active:after {
+    /*    .is-active:after {
         content: "";
         position: absolute;
         top: 0;
@@ -136,7 +144,7 @@
         height: 22px;
         width: 24px;
         transform: rotate(-45deg);
-    }
+    }*/
     
     input,
     button {
@@ -147,8 +155,7 @@
     .selector-styles {
         text-align: center;
     }
-    
-    #borderererzzz {
+    /*    #borderererzzz {
         position: relative;
         width: 1.5rem;
         height: 1.5rem;
@@ -170,9 +177,8 @@
         padding: .5rem;
         margin: 0 2rem;
         text-transform: uppercase;
-    }
-    
-    #bothemememzzz {
+    }*/
+    /*    #bothemememzzz {
         position: relative;
         width: 1.5rem;
         height: 1.5rem;
@@ -181,7 +187,7 @@
         color: white;
         padding: .5rem;
         text-transform: uppercase;
-    }
+    }*/
     /* Stylezzz Texxxt*/
     
     .styles-group {
@@ -207,28 +213,32 @@
     img.settings_cog {
         width: 10%;
     }
+    
+    label {
+        font-size: 16px;
+        color: black;
+    }
     </style>
 </head>
 
 <body id="jessieTheBody">
     <h1><span>Have a</span> Looksee</h1>
     <div class="form-group">
-        <input id="inputBorders" type="text" name="borders" placeholder=" Use jQuery Sizzle Selectors">
-        <div class="btn-group">
-            <button class="btn" id="submitBorders">Enter</button>
-            <button class="btn" id="clear">Clear</button>
-        </div>
+        <input id="inputBorders" type="text" name="borders" placeholder=" .classes, #id's, elemnts">
+        <button class="btn" id="submitBorders">&gt;</button>
+    </div>
+    <div class="btn-group">
+        <button class="btn" id="bordersAll">All</button>
+        <button class="btn" id="clear">Clear</button>
     </div>
     <!-- .form-group -->
-    <div class="form-group selector-styles">
-        <button class="bordererer" id="borderererzzz"></button>
-        <button class="shadererer" id="shaderererzzz"></button>
-        <button class="bothememem" id="bothemememzzz"></button>
-        <div class="styles-group">
-            <div class="selector-style -border is-hidden">Border</div>
-            <div class="selector-style -shade is-hidden">Shade</div>
-            <div class="selector-style -both is-hidden">Both</div>
-        </div>
+    <div class="form-group">
+        <label>Borders</label>
+        <input type="checkbox" class="bordererer" name="borderererzzz" id="borderererzzz">
+    </div>
+    <div class="form-group">
+        <label>Shader</label>
+        <input type="checkbox" name="Shaders" class="shaderererzzz" id="shaderererzzz">
     </div>
     <!-- .form-group.selector-styles -->
     <a class="settings" title="More Settings" href="chrome-extension://odmfobglccgeeccegmpclofcbpfmilam/options.html">

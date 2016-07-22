@@ -20,7 +20,7 @@ var background = {
 
     getSelector: function(request, sender, sendResponse) {
         //console.log('setting style', this.style);
-        sendResponse({selector: this.selector, style: this.style});
+        sendResponse({selector: this.selector, style: this.style });
     }
 }
 

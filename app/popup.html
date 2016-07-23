@@ -3,158 +3,15 @@
 
 <head>
     <title>Looksee</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="assets/js/analytics.js"></script>
-    <style type="text/css">
-    body {
-        font-family: 'Montserrat', helvetica neue, arial, sans-serif;
-    }
-    
-    #jessieTheBody {
-        width: 200px;
-        /* height: 200px; */
-        overflow: hidden;
-    }
-    
-    h1 {
-        font-size: 1.3rem;
-        font-weight: normal;
-        text-align: center;
-        margin: 0 0 .5rem 0;
-    }
-    
-    h1 img {
-        width: 1rem;
-    }
-    
-    input {
-        background-color: #eee;
-        border: 0;
-    }
-    
-    input,
-    button {
-        outline: 0;
-        font-family: inherit;
-    }
-    
-    input:focus,
-    input:focus::-webkit-input-placeholder,
-    button:focus {
-        background-color: #999 !important;
-        color: white;
-    }
-    
-    #inputBorders {
-        width: 70%;
-        padding: .5rem;
-    }
-    
-    .btn-group {
-        font-size: 0;
-    }
-    
-    .btn {
-        display: inline-block;
-        color: white;
-        width: 50%;
-        border: 0;
-        /*margin-bottom: 1rem;*/
-        padding: .5rem 0;
-        text-transform: uppercase;
-    }
-    
-    .btn:first-child {
-        background-color: red;
-    }
-    
-    .btn:last-child {
-        background-color: #ccc;
-    }
-    
-    #submitBorders {
-        width: 22%;
-    }
-    
-    .form-group {
-        font-size: 0;
-    }
-    /* Helpers */
-    
-    .text-center {
-        text-align: center;
-    }
-    
-    input.color {
-        padding: .5rem;
-    }
-    
-    input.color:focus {
-        background-color: none;
-    }
-    
-    .cp-app.alpha-bg-w.S.XS.light {
-        top: .5rem !important;
-        left: .5rem !important;
-    }
-    
-    .is-hidden {
-        display: none;
-    }
-    
-    input,
-    button {
-        transition: all .3s ease;
-    }
-    
-    /* Feature - Styles */
-    .feature-styles {
-        margin-bottom: 1rem;
-    }
-    .feature-style {
-        margin: 1rem 0;
-    }
-    
-    label {
-        font-size: 14px;
-        color: black;
-        margin: 0 .5rem;
-    }
-    
-    .feature-style .box-border {
-        display: inline-block;
-        width: .8rem;
-        height: .8rem;
-        border: 1px solid red;
-    }
-
-    .feature-style .box-shade {
-        display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        margin-left: 5px;
-        background-color: rgba(2,2,2, .2);
-    }
-    /* Settings */
-    .settings {
-        text-align: right;
-        display: block;
-    }
-    
-    img.settings_cog {
-        width: 10%;
-    }
-    /* Button Group */
-    .btn-group {
-        margin-bottom: 1rem;
-    }
-    </style>
 </head>
 
 <body id="jessieTheBody">
     <h1><img src="assets/images/logo.svg"> Looksee</h1>
     <div class="form-group">
-        <input id="inputBorders" tabindex="1" type="text" name="borders" placeholder=" .classes, #id's, elements">
+        <input class="bg-light-grey" id="inputBorders" tabindex="1" type="text" name="borders" placeholder=" .classes, #id's, elements">
         <button class="btn" tabindex="2" id="submitBorders">&gt;</button>
     </div>
     <!-- .form-group -->
@@ -171,7 +28,7 @@
         </div>
     </div>
     <div class="btn-group">
-        <button class="btn" tabindex="4" id="bordersAll">All</button>
+        <button class="btn bg-accent" tabindex="4" id="bordersAll">All</button>
         <button class="btn" tabindex="3" id="clear">Clear</button>
     </div>
     <div class="is-hidden">
@@ -181,7 +38,7 @@
     </div>
 
     <script type="text/javascript" src="assets/js/vendor/jquery-2.2.3.min.js"></script>
-    <script type="text/javascript" src="popup.js"></script>
+    <script type="text/javascript" src="assets/js/popup.js"></script>
 </body>
 
 </html>

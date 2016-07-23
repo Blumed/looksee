@@ -1,7 +1,205 @@
-/* response.style */
-.borderererzzz {
-  box-shadow:inset 0px 0px 0px 1px red;
+body#jessieTheBody {
+    font-family: 'Montserrat', helvetica neue, arial, sans-serif;
+    color: #333;
 }
+
+#jessieTheBody {
+    width: 200px;
+    background: #F6F6F6;
+    overflow: hidden;
+}
+
+
+/* Colors */
+
+#jessieTheBody .base-color {
+    background: #B90504;
+}
+
+#jessieTheBody .dark-accent {
+    background: #990100;
+}
+
+#jessieTheBody .text {
+    background: #333;
+}
+
+#jessieTheBody .input-background {
+    background: #E8E8E8;
+}
+
+#jessieTheBody .background {
+    background: #F6F6F6;
+}
+
+
+/* Type */
+
+#jessieTheBody h1 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 0 0 .5rem 0;
+}
+
+#jessieTheBody h1 img {
+    width: 1rem;
+}
+
+#jessieTheBody input {
+    border: 0;
+}
+
+#jessieTheBody input,
+#jessieTheBody button {
+    outline: 0;
+    font-family: inherit;
+}
+
+#jessieTheBody input:focus,
+#jessieTheBody input:focus::-webkit-input-placeholder,
+#jessieTheBody button:focus {
+    background-color: #999 !important;
+    color: white;
+}
+
+#jessieTheBody #inputBorders {
+    width: 70%;
+    padding: .5rem;
+}
+
+
+/* Buttons */
+
+#jessieTheBody .btn-group {
+    font-size: 0;
+}
+
+#jessieTheBody .btn {
+    display: inline-block;
+    color: white;
+    width: 50%;
+    border: 0;
+    /*margin-bottom: 1rem;*/
+    padding: .5rem 0;
+    text-transform: uppercase;
+}
+
+#jessieTheBody .btn:last-child {
+    background-color: #ccc;
+}
+
+#jessieTheBody #submitBorders {
+    width: 22%;
+}
+
+
+/* Helpers - Misc */
+
+#jessieTheBody .txt-center {
+    text-align: center;
+}
+
+#jessieTheBody .bg-accent {
+    background-color: #990100;
+}
+
+#jessieTheBody .bg-light-grey {
+    background-color: #E8E8E8;
+}
+
+#jessieTheBody .bg-red {
+	background-color: #ff0000;
+}
+
+#jessieTheBody .bg-accent {
+	background-color: lightslategrey;
+}
+
+#jessieTheBody input.color {
+    padding: .5rem;
+}
+
+#jessieTheBody .form-group {
+    font-size: 0;
+}
+
+#jessieTheBody input.color:focus {
+    background-color: none;
+}
+
+.cp-app.alpha-bg-w.S.XS.light {
+    top: .5rem !important;
+    left: .5rem !important;
+}
+
+#jessieTheBody .is-hidden {
+    display: none;
+}
+
+#jessieTheBody input,
+#jessieTheBody button {
+    transition: all .3s ease;
+}
+
+
+/* Feature - Styles */
+
+#jessieTheBody .feature-styles {
+    margin-bottom: 1rem;
+}
+
+#jessieTheBody .feature-style {
+    margin: 1rem 0;
+}
+
+#jessieTheBody label {
+    font-size: 14px;
+    color: black;
+    margin: 0 .5rem;
+}
+
+#jessieTheBody .feature-style .box-border {
+    display: inline-block;
+    width: .8rem;
+    height: .8rem;
+    border: 1px solid red;
+}
+
+#jessieTheBody .feature-style .box-shade {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 5px;
+    background-color: rgba(2, 2, 2, .2);
+}
+
+
+/* Settings */
+
+#jessieTheBody .settings {
+    text-align: right;
+    display: block;
+}
+
+#jessieTheBody img.settings_cog {
+    width: 10%;
+}
+
+
+/* Button Group */
+
+#jessieTheBody .btn-group {
+    margin-bottom: 1rem;
+}
+
+
+/* response.style */
+
+;.borderererzzz {
+    box-shadow: inset 0px 0px 0px 1px red;
+}
+
 .shaderererzzz {
-	background-color: rgba(2,2,2, .2);
+    background-color: rgba(2, 2, 2, .2);
 }

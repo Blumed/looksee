@@ -5,19 +5,19 @@ if ($('input[type="checkbox"].checked' != false)) {
 
 function contentScript() {
     chrome.tabs.executeScript({
-        file: 'contentScript.js'
+        file: 'assets/js/contentScript.js'
     });
 }
 
 function allElements() {
     chrome.tabs.executeScript({
-        file: 'allElements.js'
+        file: 'assets/js/allElements.js'
     });
 }
 
 function removeClass() {
     chrome.tabs.executeScript({
-        file: 'remove.js'
+        file: 'assets/js/remove.js'
     });
 }
 

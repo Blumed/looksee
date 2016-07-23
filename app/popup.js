@@ -3,18 +3,6 @@ if ($('input[type="checkbox"].checked' != false)) {
     $("#borderererzzz").prop("checked", true);
 }
 
-function makeItSoNumberOne() {
-    chrome.tabs.executeScript({
-        file: 'debuggerer.js'
-    });
-}
-
-function makeItSoNumberTwo() {
-    chrome.tabs.executeScript({
-        file: 'shadererer.js'
-    });
-}
-
 function contentScript() {
     chrome.tabs.executeScript({
         file: 'contentScript.js'
@@ -63,12 +51,16 @@ var app = {
 
         //Pressing Enter on input field triggers click
         $(customSelectors).on('keyup', function(e) {
-
             if (e.which == 13) {
                 $(customSelectorsInput).trigger('click');
                 return false;
             }
-
+        });
+        $('input[type="checkbox"]').on('keyup', function(e) {
+            if (e.which == 13) {
+                $('input[type="checkbox"]').trigger('click');
+                return false;
+            }
         });
 
         //Sends border or shader style to page
@@ -85,6 +77,7 @@ var app = {
         //Sends border or shader style to all Elements on the page
         allSelectors.addEventListener('click', function() {
             //console.log('button click' + ' ' + customSelectors.value);
+            removeSelectorsBtn.focus();
             var currentStyle = $('input[type="checkbox"]:checked').attr('id');
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });

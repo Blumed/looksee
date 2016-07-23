@@ -1,1 +1,1 @@
-$('*').removeClass('borderererzzz shaderererzzz bothemememzzz');
+$('*').removeClass('borderererzzz shaderererzzz');

@@ -67,7 +67,15 @@ var app = {
         customSelectorsInput.addEventListener('click', function() {
             //console.log('button click' + ' ' + customSelectors.value);
 
-            var currentStyle = $('input[type="checkbox"]:checked').attr('id');
+            //iterates over checkbox and grabs the checked ones and puts them in a string inside of the array
+            var currentStyle = [];
+            $('.feature-styles input[type="checkbox"]:checked').each(function() {
+                currentStyle.push($(this).attr('id'));
+            });
+            //turn array into a string
+            currentStyle = currentStyle.toString();
+            //remove array comma and replace with space
+            currentStyle = currentStyle.replace(/,/g, " ");
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs contentscript so background respnonse will activate selectors on current page
@@ -78,7 +86,16 @@ var app = {
         allSelectors.addEventListener('click', function() {
             //console.log('button click' + ' ' + customSelectors.value);
             removeSelectorsBtn.focus();
-            var currentStyle = $('input[type="checkbox"]:checked').attr('id');
+
+            //iterates over checkbox and grabs the checked ones and puts them in a string inside of the array
+            var currentStyle = [];
+            $('.feature-styles input[type="checkbox"]:checked').each(function() {
+                currentStyle.push($(this).attr('id'));
+            });
+            //turn array into a string
+            currentStyle = currentStyle.toString();
+            //remove array comma and replace with space
+            currentStyle = currentStyle.replace(/,/g, " ");
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs allElements script so background respnonse will activate selectors on current page

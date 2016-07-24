@@ -53,12 +53,14 @@ var app = {
         $(customSelectors).on('keyup', function(e) {
             if (e.which == 13) {
                 $(customSelectorsInput).trigger('click');
+                ga('send', 'event', [input], [userPressedEnterOnInput]);//Tracking Click Event
                 return false;
             }
         });
         $('input[type="checkbox"]').on('keyup', function(e) {
             if (e.which == 13) {
                 $('input[type="checkbox"]').trigger('click');
+                ga('send', 'event', [inputCheckobx], [userPressedEnterOnInputCheckbox]);//Tracking Click Event
                 return false;
             }
         });
@@ -80,6 +82,7 @@ var app = {
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
+            ga('send', 'event', [button], [userClickedEnterButton]);//Tracking Click Event
         });
 
         //Sends border or shader style to all Elements on the page
@@ -100,6 +103,7 @@ var app = {
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs allElements script so background respnonse will activate selectors on current page
             allElements();
+            ga('send', 'event', [input], [userClickedAllButton]);//Tracking Click Event
         });
 
         //Removing Selectors

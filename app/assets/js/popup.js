@@ -76,7 +76,7 @@ var app = {
             currentStyle = currentStyle.toString();
             //remove array comma and replace with space
             currentStyle = currentStyle.replace(/,/g, " ");
-            console.log(currentStyle);
+            //console.log(currentStyle);
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();

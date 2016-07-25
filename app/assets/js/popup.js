@@ -1,3 +1,17 @@
+// Standard Google Universal Analytics code
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-81115441-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+
 //first time use - picks border as first style to use
 if ($('input[type="checkbox"].checked' != false)) {
     $("#borderererzzz").prop("checked", true);
@@ -21,15 +35,16 @@ function removeClass() {
     });
 }
 
-document.getElementById('clear').addEventListener('click', removeClass);
+document.getElementById('clearButton').addEventListener('click', removeClass);
 
 var app = {
     init: function() {
         //Cache elements
         var customSelectors = document.getElementById('inputBorders'),
             customSelectorsInput = document.getElementById('submitBorders'),
+            toggleShaders = document.getElementById('shaderererzzz'),
             allSelectors = document.getElementById('bordersAll'),
-            removeSelectorsBtn = document.getElementById('clear'),
+            removeSelectorsBtn = document.getElementById('clearButton'),
             removeCustomeSelectors = "";
 
 
@@ -50,17 +65,16 @@ var app = {
         });
 
         //Pressing Enter on input field triggers click
-        $(customSelectors).on('keyup', function(e) {
+        $(customSelectors).on('keyup', function(e, customSelectors) {
             if (e.which == 13) {
                 $(customSelectorsInput).trigger('click');
-                ga('send', 'event', [input], [userPressedEnterOnInput]);//Tracking Click Event
                 return false;
             }
         });
-        $('input[type="checkbox"]').on('keyup', function(e) {
+        //Pressing Enter on input checkbox field triggers click
+        $('input[type="checkbox"]').on('keyup', function(e, toggleShaders) {
             if (e.which == 13) {
                 $('input[type="checkbox"]').trigger('click');
-                ga('send', 'event', [inputCheckobx], [userPressedEnterOnInputCheckbox]);//Tracking Click Event
                 return false;
             }
         });
@@ -82,7 +96,6 @@ var app = {
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
-            ga('send', 'event', [button], [userClickedEnterButton]);//Tracking Click Event
         });
 
         //Sends border or shader style to all Elements on the page
@@ -103,7 +116,6 @@ var app = {
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
             //Runs allElements script so background respnonse will activate selectors on current page
             allElements();
-            ga('send', 'event', [input], [userClickedAllButton]);//Tracking Click Event
         });
 
         //Removing Selectors
@@ -116,6 +128,7 @@ var app = {
             //console.log('button click' + ' ' + customSelectors.value);
             chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle });
             // console.log('clear clicked');
+
             //Runs contentscript so background respnonse will activate selectors on current page
             removeClass();
         });
@@ -123,3 +136,12 @@ var app = {
     }
 }
 app.init();
+
+//Tracking Events on Buttons and Inputs
+function trackButtonClicked(e) {
+    _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+};
+var trackingSelectors = document.querySelectorAll('button, input');
+for (var i = 0; i < trackingSelectors.length; i++) {
+    trackingSelectors[i].addEventListener('click', trackButtonClicked);
+}

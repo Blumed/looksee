@@ -197,9 +197,11 @@ body#jessieTheBody {
 /* response.style */
 
 .borderererzzz {
-    box-shadow: inset 0px 0px 0px 1px red;
+    box-shadow: inset 0px 0px 0px 1px red !important;
 }
-
+img.borderererzzz {
+	padding: 1px;
+}
 .shaderererzzz {
-    background-color: rgba(2, 2, 2, .2);
+    background-color: rgba(2, 2, 2, .2) !important;
 }

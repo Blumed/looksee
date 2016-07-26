@@ -2,9 +2,9 @@
     "manifest_version": 2,
 
     "name": "Looksee",
-    "description": "This extension assists with layout debugging by enabling borders and shaders to dom nodes.",
+    "description": "Add borders or shaders to your webpage on the fly. No need to write debug markup to fix layout components.",
     "default_locale": "en",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "offline_enabled": true,
 
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",

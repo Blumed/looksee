@@ -1,7 +1,7 @@
 // Standard Google Universal Analytics code
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-81115441-1']);
-_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageview', '/options.html']);
 
 (function() {
     var ga = document.createElement('script');

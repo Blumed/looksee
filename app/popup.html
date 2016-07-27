@@ -9,32 +9,32 @@
 
 <body id="jessieTheBody">
     <h1><img src="assets/images/logo.svg"> Looksee</h1>
-    <div class="form-group">
+    <section class="form-group">
         <input class="bg-light-grey" id="inputBorders" tabindex="1" type="text" name="borders" placeholder=" .classes, #id's, elements">
-        <button class="btn" tabindex="2" id="submitBorders">&gt;</button>
-    </div>
-    <!-- .form-group -->
-    <div class="feature-styles">
-        <div class="feature-style form-group">
-            <input type="checkbox" class="bordererer" tabindex="6" name="borderererzzz" id="borderererzzz">
-            <label>Borders</label>
-            <span class="box-border"></span>
-        </div>
-        <div class="feature-style form-group">
-            <input type="checkbox" name="Shaders" tabindex="5" class="shaderererzzz" id="shaderererzzz">
-            <label>Shader</label>
-            <span class="box-shade"></span>
-        </div>
-    </div>
-    <div class="btn-group">
+        <button class="btn bg-accent" tabindex="2" id="submitBorders">&gt;</button>
+    </section>
+    <section class="btn-group">
         <button class="btn bg-accent" tabindex="4" id="bordersAll">All</button>
-        <button class="btn" tabindex="3" id="clearButton">Clear</button>
-    </div>
-    <div class="is-hidden">
+        <button class="btn bt-medium-grey" tabindex="3" id="clearButton">Clear</button>
+    </section>
+    <!-- .form-group -->
+    <section class="feature-styles group">
+        <div class="feature-style -border">
+            <input type="checkbox" class="bordererer" name="borderererzzz" id="borderererzzz" value="None">
+            <label for="borderererzzz" tabindex="6"></label>
+            <h3>Borders</h3>
+        </div>
+        <div class="feature-style -shader">
+            <input type="checkbox" name="Shaders" tabindex="5" class="shaderererzzz" id="shaderererzzz" value="None">
+            <label for="shaderererzzz" tabindex="5"></label>
+            <h3>Shader</h3>
+        </div>
+    </section>
+    <section class="is-hidden">
         <a class="settings" title="More Settings" href="/options.html">
         <img src="assets/images/settings.svg" class="settings_cog">
     </a>
-    </div>
+    </section>
 
     <script type="text/javascript" src="assets/js/vendor/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="assets/js/popup.js"></script>

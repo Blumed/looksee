@@ -12,7 +12,7 @@ body#jessieTheBody {
 
 /* Colors */
 
-#jessieTheBody .base-color {
+/*#jessieTheBody .base-color {
     background: #B90504;
 }
 
@@ -25,12 +25,12 @@ body#jessieTheBody {
 }
 
 #jessieTheBody .input-background {
-    background: #E8E8E8;
+    background-color: #E8E8E8;
 }
 
 #jessieTheBody .background {
     background: #F6F6F6;
-}
+}*/
 
 
 /* Type */
@@ -51,14 +51,16 @@ body#jessieTheBody {
 }
 
 #jessieTheBody input,
-#jessieTheBody button {
+#jessieTheBody button,
+#jessieTheBody  .feature-style label {
     outline: 0;
     font-family: inherit;
 }
 
 #jessieTheBody input:focus,
 #jessieTheBody input:focus::-webkit-input-placeholder,
-#jessieTheBody button:focus {
+#jessieTheBody button:focus,
+#jessieTheBody  .feature-style label:focus {
     background-color: #999 !important;
     color: white;
 }
@@ -80,17 +82,13 @@ body#jessieTheBody {
     color: white;
     width: 50%;
     border: 0;
-    /*margin-bottom: 1rem;*/
     padding: .5rem 0;
     text-transform: uppercase;
 }
 
-#jessieTheBody .btn:last-child {
-    background-color: #ccc;
-}
-
 #jessieTheBody #submitBorders {
     width: 22%;
+    background-color: lightslategrey;
 }
 
 
@@ -100,14 +98,25 @@ body#jessieTheBody {
     text-align: center;
 }
 
-#jessieTheBody .bg-accent {
-    background-color: #990100;
+#jessieTheBody .txt-accent {
+	color: lightslategrey;
 }
-
+#jessieTheBody .txt-medium-grey {
+	color: #ccc;
+}
+/* Helpers - Background */
+#jessieTheBody .bg-white {
+    background-color: white;
+}
 #jessieTheBody .bg-light-grey {
     background-color: #E8E8E8;
 }
-
+#jessieTheBody .bg-medium-grey {
+    background-color: #ccc;
+}
+#jessieTheBody .bg-dark-grey {
+    background-color: #666;
+}
 #jessieTheBody .bg-red {
 	background-color: #ff0000;
 }
@@ -147,12 +156,15 @@ body#jessieTheBody {
 
 #jessieTheBody .feature-styles {
     margin-bottom: 1rem;
+    font-size: 0;
 }
 
 #jessieTheBody .feature-style {
-    margin: 1rem 0;
+    display: inline-block;
 }
-
+#jessieTheBody .feature-style:first-child {
+	margin-right: 3rem;
+}
 #jessieTheBody label {
     font-size: 14px;
     color: black;
@@ -197,11 +209,74 @@ body#jessieTheBody {
 /* response.style */
 
 .borderererzzz {
-    box-shadow: inset 0px 0px 0px 1px red !important;
+    box-shadow: inset 0 0 0 1px red !important;
 }
 img.borderererzzz {
-	padding: 1px;
+	padding: 1px !important;
+}
+svg.borderererzzz {
+	padding: 1px !important;
 }
 .shaderererzzz {
     background-color: rgba(2, 2, 2, .2) !important;
 }
+
+/* Checkboxes */
+.feature-style {
+  position: relative;
+}
+.feature-style.-border label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 65px;
+  background: #fcfff4;
+  box-shadow: inset 0 0 0 1px red;
+}
+.feature-style.-shader label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 65px;
+  background-color: rgba(2, 2, 2, .2);
+}
+.feature-style label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 3px solid lightslategrey;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+
+.feature-style label:hover::after {
+  opacity: 0.5;
+}
+
+.feature-style input[type=checkbox] {
+  visibility: hidden;
+  position: absolute;
+  left: 74px;
+  top: 1px;
+}
+.feature-style input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+.feature-style h3 {
+	display: inline-block;
+	margin: 0;
+	font-size: 14px;
+}
+
+/* end .squaredFour */
+

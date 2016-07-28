@@ -21,20 +21,59 @@ function removeClass() {
     });
 }
 
+function sendMessage() {
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      isChecked: isChecked
+    });
+  });
+}
+
 document.getElementById('clear').addEventListener('click', removeClass);
 
 var app = {
+    isChecked: false,
     init: function() {
         //Cache elements
         var customSelectors = document.getElementById('inputBorders'),
             customSelectorsInput = document.getElementById('submitBorders'),
             allSelectors = document.getElementById('bordersAll'),
             removeSelectorsBtn = document.getElementById('clear'),
+            hoverToggle = document.getElementById('hoverToggle'),
             removeCustomeSelectors = "";
 
+        // check hover toggle
+        this.isChecked = hoverToggle.checked;
+
+        // hover toggle event listener
+        hoverToggle.addEventListener('change', function() {
+            isChecked = this.checked;
+            chrome.storage.local.set({
+                isChecked: isChecked
+            });
+
+            sendMessage();
+        });
+
+        // check and set hover toggle state
+        chrome.storage.local.get('isChecked', function(result) {
+            if (result.isChecked) {
+                hoverToggle.checked = true;
+            } else {
+                hoverToggle.checked = false;
+            }
+        });
+
+        // send hover toggle state
+        sendMessage();
 
         //Adding Selectors
-        chrome.runtime.sendMessage({ fn: "getSelector" }, function(response) {
+        chrome.runtime.sendMessage({
+            fn: "getSelector"
+        }, function(response) {
             //console.log("got selector" + response.selector);
             if (response === "") {
                 removeCustomeSelectors = response.selector;
@@ -77,7 +116,11 @@ var app = {
             //remove array comma and replace with space
             currentStyle = currentStyle.replace(/,/g, " ");
             //console.log(currentStyle);
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
+            chrome.runtime.sendMessage({
+                fn: "setSelections",
+                selector: customSelectors.value,
+                style: currentStyle
+            });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
         });
@@ -97,7 +140,11 @@ var app = {
             //remove array comma and replace with space
             currentStyle = currentStyle.replace(/,/g, " ");
 
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
+            chrome.runtime.sendMessage({
+                fn: "setSelections",
+                selector: customSelectors.value,
+                style: currentStyle
+            });
             //Runs allElements script so background respnonse will activate selectors on current page
             allElements();
         });
@@ -110,7 +157,11 @@ var app = {
             customSelectors.focus();
             var currentStyle = $('button.is-active').attr('id');
             //console.log('button click' + ' ' + customSelectors.value);
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle });
+            chrome.runtime.sendMessage({
+                fn: "setSelections",
+                selector: removeCustomeSelectors,
+                style: currentStyle
+            });
             // console.log('clear clicked');
             //Runs contentscript so background respnonse will activate selectors on current page
             removeClass();

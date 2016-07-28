@@ -203,21 +203,3 @@ body#jessieTheBody {
 .shaderererzzz {
     background-color: rgba(2, 2, 2, .2);
 }
-
-/* outline Hover */
-.hover {
-  position: absolute;
-  box-shadow: 0 0 0 1px red inset;
-  z-index: 10000;
-  pointer-events: none;
-}
-
-/* TEMP outline hover label */
-.hover span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 2px 5px;
-  background: red;
-  color: #fff;
-}

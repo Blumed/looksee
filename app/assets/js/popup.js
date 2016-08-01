@@ -41,7 +41,7 @@ function sendMessage() {
     currentWindow: true
   }, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
-      isChecked: isChecked
+      hoverChecked: hoverChecked
     });
   });
 }
@@ -49,7 +49,7 @@ function sendMessage() {
 document.getElementById('clearButton').addEventListener('click', removeClass);
 
 var app = {
-    isChecked: false,
+    hoverChecked: false,
     init: function() {
         //Cache elements
         var customSelectors = document.getElementById('inputBorders'),
@@ -61,25 +61,21 @@ var app = {
             removeCustomeSelectors = "";
 
         // check hover toggle
-        this.isChecked = hoverToggle.checked;
+        this.hoverChecked = hoverToggle.checked;
 
         // hover toggle event listener
         hoverToggle.addEventListener('change', function() {
-            isChecked = this.checked;
+            hoverChecked = this.checked;
             chrome.storage.local.set({
-                isChecked: isChecked
+                hoverChecked: hoverChecked
             });
 
             sendMessage();
         });
 
         // check and set hover toggle state
-        chrome.storage.local.get('isChecked', function(result) {
-            if (result.isChecked) {
-                hoverToggle.checked = true;
-            } else {
-                hoverToggle.checked = false;
-            }
+        chrome.storage.local.get('hoverChecked', function(result) {
+            result.hoverChecked ? hoverToggle.checked = true : hoverToggle.checked = false;
         });
 
         //Adding Selectors

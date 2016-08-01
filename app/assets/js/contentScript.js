@@ -10,7 +10,7 @@ chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
     $(response.selector).addClass(response.style);
 });
 
-chrome.storage.local.get('isChecked', function(request) {
+chrome.storage.local.get('hoverChecked', function(request) {
   checkHover(request);
 })
 
@@ -40,13 +40,26 @@ function updateOutline(e) {
   }
 }
 
+function toggleOutline(e) {
+  e.preventDefault();
+  
+  chrome.storage.local.get('hoverChecked', function(request) {
+    if(request.hoverChecked) {
+      e.preventDefault();
+      $(e.toElement).toggleClass('borderererzzz');
+    }
+  })
+}
+
 function checkHover(request, sender, sendResponse) {
-  if(request.isChecked) {
+  if(request.hoverChecked) {
     $('body').append('<div class="hover"><span></span></div>');
     document.addEventListener('mouseover', updateOutline);
+    document.addEventListener('click', toggleOutline);
   } else {
     $('body').find('.hover').remove();
     document.removeEventListener('mouseover', updateOutline);
+    document.removeEventListener('click', toggleOutline);
   }
 }
 

@@ -1,7 +1,7 @@
 var background = {
     selector: "",
     style: "",
-    matched: "",
+    hoverChecked: false,
     init: function() {
 
         chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
@@ -30,4 +30,3 @@ var background = {
 }
 
 background.init();
-

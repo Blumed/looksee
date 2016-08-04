@@ -3,6 +3,8 @@ var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-81115441-1']);
 _gaq.push(['_trackPageview', '/options.html']);
 
+var console = chrome.extension.getBackgroundPage().console;
+
 (function() {
     var ga = document.createElement('script');
     ga.type = 'text/javascript';
@@ -35,15 +37,10 @@ function removeClass() {
     });
 }
 
-function sendMessage() {
-    chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {
-            hoverChecked: hoverChecked
-        });
-    });
+function hoverItUp() {
+  chrome.tabs.executeScript({
+    file: 'assets/js/outliner.js'
+  });
 }
 
 document.getElementById('clearButton').addEventListener('click', removeClass);
@@ -67,12 +64,29 @@ var app = {
 
         // hover toggle event listener
         hoverToggle.addEventListener('change', function() {
+            // store checked state
             hoverChecked = this.checked;
+
+            // close window if hover is checked
+            if(hoverChecked) window.close();
+
+            //set hover state in chrome local storage
             chrome.storage.local.set({
                 hoverChecked: hoverChecked
             });
 
-            sendMessage();
+            // send hover state
+            chrome.tabs.query({
+              active: true,
+              currentWindow: true
+            }, function(tabs) {
+              chrome.tabs.sendMessage(tabs[0].id, {
+                hoverChecked: hoverChecked
+              });
+            });
+
+            // fire outliner
+            hoverItUp();
         });
 
         // check and set hover toggle state
@@ -106,6 +120,7 @@ var app = {
                 return false;
             }
         });
+
         //Pressing Enter on input checkbox field triggers click
         $('input[type="checkbox"]').on('keyup', function(e, toggleShaders) {
             if (e.which == 13) {
@@ -180,6 +195,7 @@ var app = {
 
     }
 }
+
 app.init();
 
 //Tracking Events on Buttons and Inputs

@@ -281,15 +281,15 @@ svg.borderererzzz {
 /* end .squaredFour */
 
 /* outline Hover */
-.hover {
+.looksee-hover {
   position: absolute;
-  box-shadow: 0 0 0 1px red inset;
+  outline: 1px solid red;
   z-index: 10000;
   pointer-events: none;
 }
 
 /* TEMP outline hover label */
-.hover span {
+.looksee-hover span {
   position: absolute;
   top: 0;
   left: 0;

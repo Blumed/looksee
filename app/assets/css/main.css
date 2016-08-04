@@ -50,6 +50,9 @@ body#jessieTheBody {
     border-bottom: 1px solid #333;
     /*margin: 0 0 .5rem 0;*/
 }
+#jessieTheBody h3 {
+    font-size: .9rem;
+}
 
 #jessieTheBody h1 img {
     width: 1rem;

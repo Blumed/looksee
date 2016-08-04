@@ -2,12 +2,15 @@
 chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
 	//console.log(response.selector, response.style);
     $(response.selector).addClass(response.style);
-});
-
-//Adds debuggerer class
-chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
-	//console.log(response.selector, response.style);
-    $(response.selector).addClass(response.style);
+    let count = $(response.selector).length;
+    console.log(count);
+    response.matched = count;
+    matched = response.matched;
+    // console.log(response.matched);
+    // chrome.runtime.sendMessage({ fn: "setSelections", data: matched });
+    // chrome.runtime.sendMessage({
+    //   fn: "setSelections", data: matched
+    // });
 });
 
 chrome.storage.local.get('hoverChecked', function(request) {

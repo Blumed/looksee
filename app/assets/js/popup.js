@@ -16,7 +16,7 @@ _gaq.push(['_trackPageview', '/options.html']);
 if ($('input[type="checkbox"].checked' != false)) {
     $("#borderererzzz").prop("checked", true);
 }
-
+var console = chrome.extension.getBackgroundPage().console;
 function contentScript() {
     chrome.tabs.executeScript({
         file: 'assets/js/contentScript.js'
@@ -36,14 +36,14 @@ function removeClass() {
 }
 
 function sendMessage() {
-  chrome.tabs.query({
-    active: true,
-    currentWindow: true
-  }, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {
-      hoverChecked: hoverChecked
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            hoverChecked: hoverChecked
+        });
     });
-  });
 }
 
 document.getElementById('clearButton').addEventListener('click', removeClass);
@@ -57,8 +57,10 @@ var app = {
             toggleShaders = document.getElementById('shaderererzzz'),
             allSelectors = document.getElementById('bordersAll'),
             hoverToggle = document.getElementById('hoverToggle'),
+            matchedResults = document.getElementById('matchedResults'),
             removeSelectorsBtn = document.getElementById('clearButton'),
             removeCustomeSelectors = "";
+            noMatches = "None";
 
         // check hover toggle
         this.hoverChecked = hoverToggle.checked;
@@ -83,15 +85,18 @@ var app = {
             //console.log("got selector" + response.selector);
             if (response === "") {
                 removeCustomeSelectors = response.selector;
+                noMatches = response.matched;
                 //console.log("you are here" + customSelectors.value);
             } else {
                 customSelectors.value = response.selector;
-
                 var currentStyle = $('input[type="checkbox"]:checked').attr('id');
                 //console.log(currentStyle);
                 currentStyle = response.style;
+                // let count = $(response.selector).length;
+                // console.log(count);
+                // count = response.matched;
+                // $(matchedResults).text(count);
             }
-
         });
 
         //Pressing Enter on input field triggers click
@@ -123,9 +128,19 @@ var app = {
             //remove array comma and replace with space
             currentStyle = currentStyle.replace(/,/g, " ");
             //console.log(currentStyle);
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
+            var matched = "";
+            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, data: matched });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
+
+           chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
+                        let matched = $(response.selector).length;
+                        $(matchedResults).text(matched);
+            });
+
+
+
+
         });
 
         //Sends border or shader style to all Elements on the page

@@ -83,6 +83,7 @@ var app = {
               });
             });
 
+            // fire outliner
             hoverItUp();
         });
 

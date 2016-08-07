@@ -14,11 +14,9 @@ var console = chrome.extension.getBackgroundPage().console;
     s.parentNode.insertBefore(ga, s);
 })();
 
-//first time use - picks border as first style to use
-if ($('input[type="checkbox"].checked' != false)) {
-    $("#borderererzzz").prop("checked", true);
-}
+
 var console = chrome.extension.getBackgroundPage().console;
+
 function contentScript() {
     chrome.tabs.executeScript({
         file: 'assets/js/contentScript.js'
@@ -38,15 +36,14 @@ function removeClass() {
 }
 
 function hoverItUp() {
-  chrome.tabs.executeScript({
-    file: 'assets/js/outliner.js'
-  });
+    chrome.tabs.executeScript({
+        file: 'assets/js/outliner.js'
+    });
 }
 
 document.getElementById('clearButton').addEventListener('click', removeClass);
 
 var app = {
-    hoverChecked: false,
     init: function() {
         //Cache elements
         var customSelectors = document.getElementById('inputBorders'),
@@ -56,9 +53,30 @@ var app = {
             hoverToggle = document.getElementById('hoverToggle'),
             matchedResults = document.getElementById('matchedResults'),
             removeSelectorsBtn = document.getElementById('clearButton'),
+            storage = chrome.storage.local,
             removeCustomeSelectors = "";
-            noMatches = "None";
+        noMatches = "None";
 
+        //Retrieve existing settings
+        $('*:checkbox').each(function(index, element) {
+            var name = this.name;
+            storage.get(name, function(items) {
+                element.checked = items[name]; // true  OR  false / undefined (=false)
+            });
+        });
+
+        $('*:checkbox').on('change', saveSettings);
+
+        //Save or delete settings
+        function saveSettings() {
+            var name = this.name;
+            var items = {};
+            items[name] = this.checked;
+            storage.set(items, function() {
+                console.log("saved");
+            });
+
+        }
         // check hover toggle
         this.hoverChecked = hoverToggle.checked;
 
@@ -68,7 +86,13 @@ var app = {
             hoverChecked = this.checked;
 
             // close window if hover is checked
-            if(hoverChecked) window.close();
+            if (hoverChecked){
+                window.close();
+            } else {
+                console.log('false');
+            }
+           
+
 
             //set hover state in chrome local storage
             chrome.storage.local.set({
@@ -77,22 +101,18 @@ var app = {
 
             // send hover state
             chrome.tabs.query({
-              active: true,
-              currentWindow: true
+                active: true,
+                currentWindow: true
             }, function(tabs) {
-              chrome.tabs.sendMessage(tabs[0].id, {
-                hoverChecked: hoverChecked
-              });
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    hoverChecked: hoverChecked
+                });
             });
 
             // fire outliner
             hoverItUp();
         });
 
-        // check and set hover toggle state
-        chrome.storage.local.get('hoverChecked', function(result) {
-            result.hoverChecked ? hoverToggle.checked = true : hoverToggle.checked = false;
-        });
 
         //Adding Selectors
         chrome.runtime.sendMessage({ fn: "getSelector" }, function(response) {
@@ -106,10 +126,6 @@ var app = {
                 var currentStyle = $('input[type="checkbox"]:checked').attr('id');
                 //console.log(currentStyle);
                 currentStyle = response.style;
-                // let count = $(response.selector).length;
-                // console.log(count);
-                // count = response.matched;
-                // $(matchedResults).text(count);
             }
         });
 
@@ -147,11 +163,6 @@ var app = {
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, data: matched });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
-
-           chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
-                        let matched = $(response.selector).length;
-                        $(matchedResults).text(matched);
-            });
 
 
 

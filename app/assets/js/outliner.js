@@ -29,7 +29,7 @@ function updateOutline(e) {
 }
 
 function toggleOutline(e) {
-  e.preventDefault();
+   e.preventDefault();
 
   chrome.storage.local.get('hoverChecked', function(request) {
     if(request.hoverChecked) {

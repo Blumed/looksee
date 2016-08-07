@@ -18,14 +18,13 @@ var background = {
         console.log('setting matched', request.matched);
         this.selector = request.selector;
         this.style = request.style;
-        this.matched = request.matched;
     },
 
     getSelector: function(request, sender, sendResponse) {
         console.log('getting selector', this.selector);
         console.log('getting style', this.style);
         console.log('getting matched', this.matched);
-        sendResponse({selector: this.selector, style: this.style, data: this.matched });
+        sendResponse({selector: this.selector, style: this.style });
     }
 }
 

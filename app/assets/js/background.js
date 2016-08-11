@@ -10,6 +10,12 @@ var background = {
                     background[request.fn](request, sender, sendResponse);
                 }
             });
+
+        chrome.tabs.onActivated.addListener(function(data) {
+          chrome.tabs.executeScript({
+              file: 'assets/js/outliner.js'
+          });
+        });
     },
 
     setSelections: function(request, sender, sendResponse) {

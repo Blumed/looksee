@@ -141,7 +141,7 @@ body#jessieTheBody {
     background-color: #666;
 }
 #jessieTheBody .bg-red {
-	background-color: #ff0000;
+	background-color: #d0021b;
 }
 
 #jessieTheBody .bg-accent {
@@ -198,7 +198,7 @@ body#jessieTheBody {
     display: inline-block;
     width: .8rem;
     height: .8rem;
-    border: 1px solid red;
+    border: 1px solid #d0021b;
 }
 
 #jessieTheBody .feature-style .box-shade {
@@ -232,7 +232,7 @@ body#jessieTheBody {
 /* response.style */
 
 .borderererzzz {
-    outline: 1px solid red !important;
+    outline: 1px solid #d0021b !important;
 }
 .shaderererzzz {
     background-color: rgba(2, 2, 2, .2) !important;
@@ -250,7 +250,7 @@ body#jessieTheBody {
   top: 0;
   left: 65px;
   background: #fcfff4;
-  box-shadow: inset 0 0 0 1px red;
+  box-shadow: inset 0 0 0 1px #d0021b;
 }
 .feature-style.-shader label {
   width: 20px;
@@ -300,17 +300,22 @@ body#jessieTheBody {
 /* outline Hover */
 .looksee-hover {
   position: absolute;
-  outline: 1px solid red;
+  outline: 1px solid #d0021b;
   z-index: 10000;
   pointer-events: none;
 }
 
 /* TEMP outline hover label */
 .looksee-hover span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 2px 5px;
-  background: red;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 5px 10px;
+  background: #d0021b;
   color: #fff;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.25);
+  border-top-left-radius: 4px;
 }

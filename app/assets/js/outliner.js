@@ -29,26 +29,18 @@ function updateOutline(e) {
 }
 
 function toggleOutline(e) {
-   e.preventDefault();
-
-  chrome.storage.local.get('hoverChecked', function(request) {
-    if(request.hoverChecked) {
-      e.preventDefault();
-      $(e.toElement).toggleClass('borderererzzz');
-    }
-  })
+  e.preventDefault();
+  $(e.toElement).toggleClass('borderererzzz');
 }
 
 function checkHover(request, sender, sendResponse) {
   if(request.hoverChecked) {
     $('body').append('<div class="looksee-hover"><span></span></div>');
     document.addEventListener('mouseover', updateOutline);
-    document.addEventListener('click', toggleOutline);
+    $(document).bind('click', '*', toggleOutline);
   } else {
     $('body').find('.looksee-hover').remove();
     document.removeEventListener('mouseover', updateOutline);
-    document.removeEventListener('click', toggleOutline);
+    $(document).unbind('click');
   }
 }
-
-chrome.runtime.onMessage.addListener(checkHover);

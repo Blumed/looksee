@@ -73,7 +73,7 @@ var app = {
             var items = {};
             items[name] = this.checked;
             storage.set(items, function() {
-                console.log("saved");
+                // console.log("saved");
             });
 
         }
@@ -88,10 +88,8 @@ var app = {
             // close window if hover is checked
             if (hoverChecked){
                 window.close();
-            } else {
-                console.log('false');
             }
-           
+
 
 
             //set hover state in chrome local storage

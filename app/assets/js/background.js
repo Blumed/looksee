@@ -23,7 +23,7 @@ var background = {
         // console.log('setting style', request.style);
         // console.log('setting matched', request.matched);
         this.selector = request.selector; 
-        this.style = request.style;
+        this.style = request.style; 
     },
 
     getSelector: function(request, sender, sendResponse) {

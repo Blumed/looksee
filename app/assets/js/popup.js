@@ -95,7 +95,7 @@ var app = {
         hoverToggle.addEventListener('change', function () {
             // store checked state
             hoverChecked = this.checked;
-
+console.log('clicked');
             // close window if hover is checked
             if (hoverChecked) {
                 window.close();
@@ -172,7 +172,7 @@ var app = {
         });
         //Sends border or shader style to page
         customSelectorsInput.addEventListener('click', function () {
-            console.log('button click ' + customSelectors.value);
+            //console.log('button click ' + customSelectors.value);
             // iterates over checkbox and grabs the checked ones and puts them in a string
             // inside of the array
             var currentStyle = [];

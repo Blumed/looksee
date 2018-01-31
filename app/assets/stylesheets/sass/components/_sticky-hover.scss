@@ -1,0 +1,18 @@
+/* outline Hover */
+
+.looksee-hover {
+  position: absolute;
+  outline: 1px solid red;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+// /* TEMP outline hover label */
+.looksee-hover span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 5px;
+  background: red;
+  color: #fff;
+}

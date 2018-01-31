@@ -23,7 +23,6 @@
       width: 76%;
       padding: .5rem;
       height: 18px;
-
     }
     .form-group {
       font-size: 0;
@@ -31,14 +30,13 @@
     input.color:focus {
       background-color: none;
     }
-
-label {
-  font-size: inherit;
-  color: black;
-  margin: 0 .5rem;
-}
-input.color {
-  padding: .5rem;
-}
-
+    label {
+      font-size: inherit;
+      color: black;
+      margin: 0 .5rem;
+    }
+    input.color {
+      padding: .5rem;
+    }
   }
+

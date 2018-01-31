@@ -16,15 +16,49 @@
     font-size: 1.3rem;
     background-color: lightslategrey;
     position: relative;
-    font-weight: bold;
     height: 2.1rem;
     vertical-align: top;
     padding: 0;
     span {
-        position: absolute;
-        top: 4px;
-        left: 30%;
+      position: absolute;
+      top: 4px;
+      left: 30%;
     }
+  }
+  #settingsButton {
+    position: relative;
+    height: 20px;
+    width: 50px;
+    overflow: hidden;
+    > * {
+      transition: all .3s ease;
+    }
+    .settings_close {
+      font-size: 16px;
+      top: 0;
+      right: -100%;
+      position: absolute;
+      color: #4e4e50;
+    }
+    &.settings-active {
+      .settings_cog {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition: all .3s ease;
+
+      }
+      .settings_close {
+        position: absolute;
+        top: 0;
+        left: -30%;
+        transition: all .3s ease;
+
+      }
+    }
+  }
+  #allButton {
+    letter-spacing: 2px;
   }
   #settingsButton:hover {
     cursor: pointer;
@@ -33,16 +67,11 @@
     background-color: transparent !important;
   }
   #clearButton {
+    letter-spacing: 2px;
     color: lightslategrey;
     &:focus {
-        color: white;
+      color: white;
     }
   }
 }
-
-
-
-
-
-
 

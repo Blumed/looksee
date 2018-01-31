@@ -1,0 +1,32 @@
+#jessieTheBody {
+    .screens {
+  position: relative;
+}.main-screen,
+.option-screen {
+  transition: all .3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.main-screen {
+  z-index: 2;
+  &.is-active {
+    z-index: 2;
+    opacity: 1;
+  }
+
+}
+.option-screen {
+  opacity: 0;
+  z-index: 1;
+  &.is-active {
+    z-index: 2;
+    opacity: 1;
+  }
+
+
+}
+
+} 

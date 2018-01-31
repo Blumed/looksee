@@ -20,7 +20,7 @@
         "matches": [
             "*://*/*"
         ],
-        "css": ["assets/css/main.css"],
+        "css": ["assets/stylesheets/css/main.css"],
         "js": ["assets/js/vendor/jquery-2.2.3.min.js", "assets/js/contentScript.js", "assets/js/outliner.js"],
 
         "run_at": "document_end",

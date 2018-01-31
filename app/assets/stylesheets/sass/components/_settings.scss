@@ -1,0 +1,16 @@
+#jessieTheBody {
+  .settings {
+    display: inline-block;
+    width: 87px;
+    button {
+      background-color: transparent;
+      border: 0;
+      overflow: hidden;
+    }
+    img.settings_cog {
+      width: 30%;
+      float: right;
+    }
+  }
+}
+

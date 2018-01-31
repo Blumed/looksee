@@ -1,0 +1,251 @@
+:root#jessieTheBody {
+  font-family: 'Montserrat', helvetica neue, arial, sans-serif;
+  color: #333;
+  font-size: 16px; }
+
+.borderererzzz {
+  outline: 1px solid red !important; }
+
+.shaderererzzz {
+  background-color: rgba(2, 2, 2, 0.2) !important; }
+
+#jessieTheBody .bg-white {
+  background-color: white; }
+#jessieTheBody .bg-light-grey {
+  background-color: #E8E8E8; }
+#jessieTheBody .bg-medium-grey {
+  background-color: #ccc; }
+#jessieTheBody .bg-dark-grey {
+  background-color: #666; }
+#jessieTheBody .bg-red {
+  background-color: #ff0000; }
+#jessieTheBody .bg-accent {
+  background-color: lightslategrey; }
+#jessieTheBody .txt-center {
+  text-align: center; }
+#jessieTheBody .txt-left {
+  text-align: left; }
+#jessieTheBody .txt-right {
+  text-align: right; }
+#jessieTheBody .txt-accent {
+  color: lightslategrey; }
+#jessieTheBody .txt-medium-grey {
+  color: #ccc; }
+#jessieTheBody .txt-grey {
+  color: #666; }
+#jessieTheBody .is-hidden {
+  display: none; }
+
+#jessieTheBody input {
+  border: 0; }
+#jessieTheBody input,
+#jessieTheBody button {
+  transition: all .3s ease; }
+#jessieTheBody input,
+#jessieTheBody button,
+#jessieTheBody .feature-style label {
+  outline: 0;
+  font-family: inherit; }
+#jessieTheBody input:focus,
+#jessieTheBody input:focus::-webkit-input-placeholder,
+#jessieTheBody button:focus,
+#jessieTheBody .feature-style label:focus {
+  background-color: #999 !important;
+  color: white; }
+#jessieTheBody #inputPressed {
+  width: 76%;
+  padding: .5rem;
+  height: 18px; }
+#jessieTheBody .form-group {
+  font-size: 0; }
+#jessieTheBody input.color:focus {
+  background-color: none; }
+#jessieTheBody label {
+  font-size: inherit;
+  color: black;
+  margin: 0 .5rem; }
+#jessieTheBody input.color {
+  padding: .5rem; }
+
+#jessieTheBody .btn-group {
+  font-size: 0;
+  margin-bottom: 1rem; }
+#jessieTheBody .btn {
+  display: inline-block;
+  color: white;
+  width: 50%;
+  border: 0;
+  padding: .5rem 0;
+  text-transform: uppercase; }
+#jessieTheBody #submitButton {
+  width: 16%;
+  font-size: 1.3rem;
+  background-color: lightslategrey;
+  position: relative;
+  font-weight: bold;
+  height: 2.1rem;
+  vertical-align: top;
+  padding: 0; }
+  #jessieTheBody #submitButton span {
+    position: absolute;
+    top: 4px;
+    left: 30%; }
+#jessieTheBody #settingsButton:hover {
+  cursor: pointer; }
+#jessieTheBody #settingsButton:focus {
+  background-color: transparent !important; }
+#jessieTheBody #clearButton {
+  color: lightslategrey; }
+  #jessieTheBody #clearButton:focus {
+    color: white; }
+
+#jessieTheBody {
+  width: 200px;
+  background-color: #F6F6F6;
+  overflow: hidden; }
+  #jessieTheBody h1 {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 0 0 .5rem 0; }
+    #jessieTheBody h1 img {
+      width: 1rem; }
+    #jessieTheBody h1.title {
+      font-weight: 600; }
+  #jessieTheBody h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-bottom: .5rem;
+    background-color: #F6F6F6;
+    width: 100px;
+    display: block;
+    z-index: 2;
+    position: relative;
+    margin: .5rem auto; }
+  #jessieTheBody h3 {
+    font-size: .9rem; }
+  #jessieTheBody header {
+    position: relative; }
+  #jessieTheBody .txt-line:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: #333;
+    border-bottom: 1px solid white; }
+
+#jessieTheBody .feature-styles {
+  margin-bottom: 1rem;
+  font-size: 0;
+  display: inline-block;
+  position: relative; }
+  #jessieTheBody .feature-styles:first-child {
+    margin-right: 3rem; }
+  #jessieTheBody .feature-styles .box-border {
+    display: inline-block;
+    width: .8rem;
+    height: .8rem;
+    border: 1px solid red; }
+  #jessieTheBody .feature-styles .box-shade {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 5px;
+    background-color: rgba(2, 2, 2, 0.2); }
+  #jessieTheBody .feature-styles.-border label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 65px;
+    background: #fcfff4;
+    box-shadow: inset 0 0 0 1px red; }
+  #jessieTheBody .feature-styles.-shader label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 65px;
+    background-color: rgba(2, 2, 2, 0.2); }
+  #jessieTheBody .feature-styles label:after {
+    content: '';
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border: 3px solid lightslategrey;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    transform: rotate(-45deg); }
+  #jessieTheBody .feature-styles label:hover::after {
+    opacity: 0.5; }
+  #jessieTheBody .feature-styles input[type=checkbox] {
+    visibility: hidden;
+    position: absolute;
+    left: 74px;
+    top: 1px; }
+  #jessieTheBody .feature-styles input[type=checkbox]:checked + label:after {
+    opacity: 1; }
+  #jessieTheBody .feature-styles h3 {
+    display: inline-block;
+    margin: 0;
+    font-size: .9rem; }
+
+#jessieTheBody .settings {
+  display: inline-block;
+  width: 87px; }
+  #jessieTheBody .settings button {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden; }
+  #jessieTheBody .settings img.settings_cog {
+    width: 30%;
+    float: right; }
+
+.cp-app.alpha-bg-w.S.XS.light {
+  top: .5rem !important;
+  left: .5rem !important; }
+
+#jessieTheBody .screens {
+  position: relative; }
+
+.main-screen,
+.option-screen {
+  transition: all .3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1; }
+
+.is-not-visible {
+  transform: translate(-200%, 0%); }
+
+.main-screen {
+  z-index: 2; }
+
+.option-screen {
+  opacity: 0;
+  z-index: 1; }
+
+.main-screen.is-active {
+  z-index: 2;
+  opacity: 1; }
+
+.option-screen.is-active {
+  z-index: 2;
+  opacity: 1; }
+
+/* Feature - Styles */
+/* response.style */
+/* Checkboxes */
+/* end .squaredFour */
+/* outline Hover */

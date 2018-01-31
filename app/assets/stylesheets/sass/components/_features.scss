@@ -1,0 +1,75 @@
+#jessieTheBody {
+  .feature-styles {
+    margin-bottom: 1rem;
+    font-size: 0;
+    display: inline-block;
+    position: relative;
+    &:first-child {
+      margin-right: 3rem;
+    }
+    .box-border {
+      display: inline-block;
+      width: .8rem;
+      height: .8rem;
+      border: 1px solid red;
+    }
+    .box-shade {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      margin-left: 5px;
+      background-color: rgba(2, 2, 2, .2);
+    }
+    &.-border label {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 65px;
+      background: #fcfff4;
+      box-shadow: inset 0 0 0 1px red;
+    }
+    &.-shader label {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 65px;
+      background-color: rgba(2, 2, 2, .2);
+    }
+    label:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid lightslategrey;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+    label:hover::after {
+      opacity: 0.5;
+    }
+    input[type=checkbox] {
+      visibility: hidden;
+      position: absolute;
+      left: 74px;
+      top: 1px;
+    }
+    input[type=checkbox]:checked+label:after {
+      opacity: 1;
+    }
+    h3 {
+      display: inline-block;
+      margin: 0;
+      font-size: .9rem;
+    }
+  }
+}
+

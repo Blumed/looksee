@@ -1,0 +1,44 @@
+  #jessieTheBody {
+    input {
+      border: 0;
+    }
+    input,
+    button {
+      transition: all .3s ease;
+    }
+    input,
+    button,
+    .feature-style label {
+      outline: 0;
+      font-family: inherit;
+    }
+    input:focus,
+    input:focus::-webkit-input-placeholder,
+    button:focus,
+    .feature-style label:focus {
+      background-color: #999 !important;
+      color: white;
+    }
+    #inputPressed {
+      width: 76%;
+      padding: .5rem;
+      height: 18px;
+
+    }
+    .form-group {
+      font-size: 0;
+    }
+    input.color:focus {
+      background-color: none;
+    }
+
+label {
+  font-size: inherit;
+  color: black;
+  margin: 0 .5rem;
+}
+input.color {
+  padding: .5rem;
+}
+
+  }

@@ -1,0 +1,47 @@
+#jessieTheBody {
+  width: 200px;
+  background-color: #F6F6F6;
+  overflow: hidden;
+  h1 {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 0 0 .5rem 0;
+    img {
+      width: 1rem;
+    }
+    &.title {
+        font-weight: 600;
+    }
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-bottom: .5rem;
+    background-color: #F6F6F6;
+    width: 100px;
+    display: block;
+    z-index: 2;
+    position: relative;
+    margin: .5rem auto;
+  }
+  h3 {
+    font-size: .9rem;
+  }
+  header {
+    position: relative;
+  }
+ //Type
+  .txt-line:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: #333;
+    border-bottom: 1px solid white;
+  }
+
+}

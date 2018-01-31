@@ -1,0 +1,127 @@
+:root#jessieTheBody {
+  font-family: 'Montserrat', helvetica neue, arial, sans-serif;
+  color: #333;
+  font-size: 16px;
+}
+
+.borderererzzz {
+  outline: 1px solid red !important;
+}
+
+.shaderererzzz {
+  background-color: rgba(2, 2, 2, .2) !important;
+}
+
+//---------------
+// Colors
+//----------------
+
+$primary:#B90504;
+$primary-dark: #990100;
+$gray: #333;
+$gray-light: #E8E8E8;
+
+//---------------
+// Files
+//----------------
+
+@import "helper";
+@import "form";
+@import "btn";
+@import "type";
+
+@import "components/features";
+@import "components/settings";
+
+
+.cp-app.alpha-bg-w.S.XS.light {
+  top: .5rem !important;
+  left: .5rem !important;
+}
+
+
+
+
+#jessieTheBody .screens {
+  position: relative;
+}
+
+.main-screen,
+.option-screen {
+  transition: all .3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.is-not-visible {
+  transform: translate(-200%, 0%);
+}
+
+.main-screen {
+  z-index: 2;
+}
+
+
+
+.option-screen {
+  opacity: 0;
+  z-index: 1;
+}
+
+.main-screen.is-active {
+  z-index: 2;
+  opacity: 1;
+}
+
+.option-screen.is-active {
+  z-index: 2;
+  opacity: 1;
+}
+
+
+/* Feature - Styles */
+
+
+
+
+
+
+ 
+
+
+/* response.style */
+
+
+
+/* Checkboxes */
+
+
+
+
+/* end .squaredFour */
+
+
+/* outline Hover */
+
+// .looksee-hover {
+//   position: absolute;
+//   outline: 1px solid red;
+//   z-index: 10000;
+//   pointer-events: none;
+// }
+
+
+// /* TEMP outline hover label */
+
+// .looksee-hover span {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   padding: 2px 5px;
+//   background: red;
+//   color: #fff;
+// }
+

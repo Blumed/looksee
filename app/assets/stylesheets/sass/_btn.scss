@@ -1,0 +1,48 @@
+#jessieTheBody {
+  .btn-group {
+    font-size: 0;
+    margin-bottom: 1rem;
+  }
+  .btn {
+    display: inline-block;
+    color: white;
+    width: 50%;
+    border: 0;
+    padding: .5rem 0;
+    text-transform: uppercase;
+  }
+  #submitButton {
+    width: 16%;
+    font-size: 1.3rem;
+    background-color: lightslategrey;
+    position: relative;
+    font-weight: bold;
+    height: 2.1rem;
+    vertical-align: top;
+    padding: 0;
+    span {
+        position: absolute;
+        top: 4px;
+        left: 30%;
+    }
+  }
+  #settingsButton:hover {
+    cursor: pointer;
+  }
+  #settingsButton:focus {
+    background-color: transparent !important;
+  }
+  #clearButton {
+    color: lightslategrey;
+    &:focus {
+        color: white;
+    }
+  }
+}
+
+
+
+
+
+
+

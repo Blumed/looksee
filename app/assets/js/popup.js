@@ -50,11 +50,12 @@ var app = {
             customSelectorsInput = document.getElementById('submitBorders'),
             toggleShaders = document.getElementById('shaderererzzz'),
             allSelectors = document.getElementById('bordersAll'),
+            getColor = document.getElementById('colorPicker'),
             hoverToggle = document.getElementById('hoverToggle'),
             matchedResults = document.getElementById('matchedResults'),
             removeSelectorsBtn = document.getElementById('clearButton'),
             storage = chrome.storage.local,
-            removeCustomeSelectors = "";
+            removeCustomeSelectors = "",
         noMatches = "None";
 
         //Retrieve existing settings
@@ -120,12 +121,14 @@ var app = {
                 noMatches = response.matched;
                 //console.log("you are here" + customSelectors.value);
             } else {
+                // var currentStyle = $('input[type="checkbox"]:checked').attr('id');
+                // console.log(currentStyle + '  ' + response.color );
                 customSelectors.value = response.selector;
-                var currentStyle = $('input[type="checkbox"]:checked').attr('id');
-                //console.log(currentStyle);
                 currentStyle = response.style;
+                getColor.value = response.color;
             }
         });
+        
 
         //Pressing Enter on input field triggers click
         $(customSelectors).on('keyup', function(e, customSelectors) {
@@ -158,7 +161,7 @@ var app = {
             currentStyle = currentStyle.replace(/,/g, " ");
             //console.log(currentStyle);
             var matched = "";
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, data: matched });
+            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, data: matched, color: getColor.value });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
 
@@ -169,7 +172,7 @@ var app = {
 
         //Sends border or shader style to all Elements on the page
         allSelectors.addEventListener('click', function() {
-            //console.log('button click' + ' ' + customSelectors.value);
+            console.log('button click' + ' ' + customSelectors.value + ' ' + getColor.value);
             removeSelectorsBtn.focus();
 
             //iterates over checkbox and grabs the checked ones and puts them in a string inside of the array
@@ -182,7 +185,7 @@ var app = {
             //remove array comma and replace with space
             currentStyle = currentStyle.replace(/,/g, " ");
 
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle });
+            chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, color:  getColor.value });
             //Runs allElements script so background respnonse will activate selectors on current page
             allElements();
         });
@@ -195,7 +198,7 @@ var app = {
             customSelectors.focus();
             var currentStyle = $('button.is-active').attr('id');
             //console.log('button click' + ' ' + customSelectors.value);
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle });
+            chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle, color: getColor.value });
             // console.log('clear clicked');
 
             //Runs contentscript so background respnonse will activate selectors on current page

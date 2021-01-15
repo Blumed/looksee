@@ -1,247 +1,257 @@
 body#jessieTheBody {
-    font-family: 'Montserrat', helvetica neue, arial, sans-serif;
-    color: #333;
-    font-size: 16px;
+  font-family: 'Montserrat', helvetica neue, arial, sans-serif;
+  color: #333;
+  font-size: 16px;
 }
 
 #jessieTheBody {
-    width: 200px;
-    background: #F6F6F6;
-    overflow: hidden;
+  width: 200px;
+  background: #f6f6f6;
+  overflow: hidden;
 }
-
 
 /* Colors */
 
 /*#jessieTheBody .base-color {
-    background: #B90504;
-}
-
-#jessieTheBody .dark-accent {
-    background: #990100;
-}
-
-#jessieTheBody .text {
-    background: #333;
-}
-
-#jessieTheBody .input-background {
-    background-color: #E8E8E8;
-}
-
-#jessieTheBody .background {
-    background: #F6F6F6;
-}*/
-
+      background: #B90504;
+  }
+  
+  #jessieTheBody .dark-accent {
+      background: #990100;
+  }
+  
+  #jessieTheBody .text {
+      background: #333;
+  }
+  
+  #jessieTheBody .input-background {
+      background-color: #E8E8E8;
+  }
+  
+  #jessieTheBody .background {
+      background: #F6F6F6;
+  }*/
 
 /* Type */
 
 #jessieTheBody h1 {
-    font-size: 1.3rem;
-    font-weight: normal;
-    text-align: center;
-    margin: 0 0 .5rem 0;
+  font-size: 1.3rem;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
 }
 #jessieTheBody h2 {
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: .5rem;
-    border-bottom: 1px solid #333;
-    /*margin: 0 0 .5rem 0;*/
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  /*margin: 0 0 .5rem 0;*/
 }
 #jessieTheBody h3 {
-    font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 #jessieTheBody h1 img {
-    width: 1rem;
+  width: 1rem;
 }
 
 #jessieTheBody input {
-    border: 0;
+  border: 0;
 }
 
 #jessieTheBody input,
 #jessieTheBody button,
-#jessieTheBody  .feature-style label {
-    outline: 0;
-    font-family: inherit;
+#jessieTheBody .feature-style label {
+  outline: 0;
+  font-family: inherit;
 }
 
 #jessieTheBody input:focus,
 #jessieTheBody input:focus::-webkit-input-placeholder,
 #jessieTheBody button:focus,
-#jessieTheBody  .feature-style label:focus {
-    background-color: #999 !important;
-    color: white;
+#jessieTheBody .feature-style label:focus {
+  background-color: #999 !important;
+  color: white;
 }
 
 #jessieTheBody #inputBorders {
-    width: 76%;
-    padding: .5rem;
+  width: 76%;
+  padding: 0.5rem;
 }
 
 /* Selector Input */
 #inputBorders {
-	font-size: .9rem;
+  font-size: 0.9rem;
 }
 /* Buttons */
 
 #jessieTheBody .btn-group {
-    font-size: 0;
+  font-size: 0;
 }
 
 #jessieTheBody .btn {
-    display: inline-block;
-    color: white;
-    width: 50%;
-    border: 0;
-    padding: .5rem 0;
-    text-transform: uppercase;
+  display: inline-block;
+  color: white;
+  width: 50%;
+  border: 0;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+#jessieTheBody .bt-medium-grey {
+  color: lightslategrey;
 }
 
 #jessieTheBody #submitBorders {
-    width: 16%;
-    font-size: 1.3rem;
-    background-color: lightslategrey;
-    padding: 0;
-    font-weight: bold;
-    height: 2.1rem;
-    vertical-align: top;
+  width: 16%;
+  font-size: 1.3rem;
+  background-color: lightslategrey;
+  padding: 0;
+  font-weight: bold;
+  height: 2.1rem;
+  vertical-align: top;
 }
-
 
 /* Helpers - Misc */
 
 #jessieTheBody .txt-center {
-    text-align: center;
+  text-align: center;
 }
 
 #jessieTheBody .txt-accent {
-	color: lightslategrey;
+  color: lightslategrey;
 }
 #jessieTheBody .txt-medium-grey {
-	color: #ccc;
+  color: #ccc;
 }
 #jessieTheBody .txt-grey {
-    color: #666;
+  color: #666;
 }
 /* Helpers - Background */
 #jessieTheBody .bg-white {
-    background-color: white;
+  background-color: white;
 }
 #jessieTheBody .bg-light-grey {
-    background-color: #E8E8E8;
+  background-color: #e8e8e8;
 }
 #jessieTheBody .bg-medium-grey {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 #jessieTheBody .bg-dark-grey {
-    background-color: #666;
+  background-color: #666;
 }
 #jessieTheBody .bg-red {
-	background-color: #ff0000;
+  background-color: #ff0000;
 }
 
 #jessieTheBody .bg-accent {
-	background-color: lightslategrey;
+  background-color: lightslategrey;
 }
 
 #jessieTheBody input.color {
-    padding: .5rem;
+  padding: 0.5rem;
 }
 
 #jessieTheBody .form-group {
-    font-size: 0;
+  font-size: 0;
 }
 
 #jessieTheBody input.color:focus {
-    background-color: none;
+  background-color: none;
 }
 
 .cp-app.alpha-bg-w.S.XS.light {
-    top: .5rem !important;
-    left: .5rem !important;
+  top: 0.5rem !important;
+  left: 0.5rem !important;
 }
 
 #jessieTheBody .is-hidden {
-    display: none;
+  display: none;
 }
 
 #jessieTheBody input,
 #jessieTheBody button {
-    transition: all .3s ease;
+  transition: all 0.3s ease;
 }
-
 
 /* Feature - Styles */
 
 #jessieTheBody .feature-styles {
-    margin-bottom: 1rem;
-    font-size: 0;
+  margin-bottom: 1rem;
+  font-size: 0;
 }
 
 #jessieTheBody .feature-style {
-    display: inline-block;
+  display: inline-block;
 }
 #jessieTheBody .feature-style:first-child {
-	margin-right: 3rem;
+  margin-right: 3rem;
 }
 #jessieTheBody label {
-    font-size: inherit;
-    color: black;
-    margin: 0 .5rem;
+  font-size: inherit;
+  color: black;
+  margin: 0 0.5rem;
 }
 
 #jessieTheBody .feature-style .box-border {
-    display: inline-block;
-    width: .8rem;
-    height: .8rem;
-    border: 1px solid red;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid red;
 }
 
 #jessieTheBody .feature-style .box-shade {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    margin-left: 5px;
-    background-color: rgba(2, 2, 2, .2);
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 5px;
+  background-color: rgba(2, 2, 2, 0.2);
 }
-
 
 /* Settings */
 
 #jessieTheBody .settings {
-    text-align: right;
-    display: block;
+  text-align: right;
+  display: block;
 }
 
 #jessieTheBody img.settings_cog {
-    width: 10%;
+  width: 10%;
 }
-
 
 /* Button Group */
 
 #jessieTheBody .btn-group {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
-
 
 /* response.style */
 
 .borderererzzz {
-    outline: 1px solid red !important;
+  /* outline: 1px solid red !important; */
 }
 .shaderererzzz {
-    background-color: rgba(2, 2, 2, .2) !important;
+  background-color: rgba(2, 2, 2, 0.2) !important;
 }
 
 /* Checkboxes */
 .feature-style {
   position: relative;
 }
+
+.feature-style .feature {
+  position: relative;
+}
+.feature-style .feature:not(:last-child) {
+  margin-bottom: 10px;
+}
+#colorPicker {
+  width: 25px;
+  height: 28px;
+  margin-left: 27px;
+}
+
 .feature-style.-border label {
   width: 20px;
   height: 20px;
@@ -259,7 +269,7 @@ body#jessieTheBody {
   position: absolute;
   top: 0;
   left: 65px;
-  background-color: rgba(2, 2, 2, .2);
+  background-color: rgba(2, 2, 2, 0.2);
 }
 .feature-style label:after {
   content: '';
@@ -280,19 +290,19 @@ body#jessieTheBody {
   opacity: 0.5;
 }
 
-.feature-style input[type=checkbox] {
+.feature-style input[type='checkbox'] {
   visibility: hidden;
   position: absolute;
   left: 74px;
   top: 1px;
 }
-.feature-style input[type=checkbox]:checked + label:after {
+.feature-style input[type='checkbox']:checked + label:after {
   opacity: 1;
 }
 .feature-style h3 {
-	display: inline-block;
-	margin: 0;
-	font-size: .9rem;
+  display: inline-block;
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 /* end .squaredFour */

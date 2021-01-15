@@ -10,7 +10,8 @@
 <body id="jessieTheBody">
     <h1><img src="assets/images/logo.svg"> Looksee</h1>
     <section class="form-group">
-        <input class="bg-light-grey" id="inputBorders" tabindex="1" type="text" name="borders" placeholder=" .class #id element">
+        <input class="bg-light-grey" id="inputBorders" tabindex="1" type="text" name="borders"
+            placeholder=" .class #id element">
         <button class="btn bg-accent" tabindex="2" id="submitBorders">&#43;</button>
     </section>
     <section class="btn-group">
@@ -25,18 +26,27 @@
             <h3>Borders</h3>
         </div>
         <div class="feature-style -shader">
-            <input type="checkbox" name="havealooksee_shaders" tabindex="5" class="shaderererzzz" id="shaderererzzz" value="None">
+            <input type="checkbox" name="havealooksee_shaders" tabindex="5" class="shaderererzzz" id="shaderererzzz"
+                value="None">
             <label for="shaderererzzz" tabindex="5"></label>
             <h3>Shader</h3>
         </div>
     </section>
     <h2 class="txt-center txt-medium-grey">Options</h2>
     <section>
-      <div class="feature-style -border">
-          <input type="checkbox" id="hoverToggle" name="havealooksee_hover">
-          <label for="hoverToggle"></label>
-          <h3>Hover</h3>
-      </div>
+        <div class="feature-style -border">
+            <div class="feature hover">
+                <input type="checkbox" id="hoverToggle" name="havealooksee_hover">
+                <label for="hoverToggle"></label>
+                <h3>Hover</h3>
+            </div>
+            <div class="feature color-picker">
+                <h3>Color</h3>
+                <input type="color" id="colorPicker" name="colorPicker" value="#FF0000">
+            </div>
+
+
+        </div>
     </section>
     <h2 class="txt-center txt-medium-grey is-hidden">Data</h2>
     <section class="is-hidden">
@@ -47,8 +57,8 @@
     </section>
     <section class="is-hidden">
         <a class="settings" title="More Settings" href="/options.html">
-        <img src="assets/images/settings.svg" class="settings_cog">
-    </a>
+            <img src="assets/images/settings.svg" class="settings_cog">
+        </a>
     </section>
 
     <script type="text/javascript" src="assets/js/vendor/jquery-2.2.3.min.js"></script>

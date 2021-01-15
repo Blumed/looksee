@@ -30,6 +30,7 @@ function updateOutline(e) {
 
 function toggleOutline(e) {
   e.preventDefault();
+  console.log(e.toElement);
   $(e.toElement).toggleClass('borderererzzz');
 }
 
@@ -44,3 +45,6 @@ function checkHover(request, sender, sendResponse) {
     $(document).unbind('click');
   }
 }
+
+
+// $yourUl.css("display", $yourUl.css("display") === 'none' ? '' : 'none');

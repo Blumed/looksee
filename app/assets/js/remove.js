@@ -1,1 +1,3 @@
-$('*').removeClass('borderererzzz shaderererzzz');
+$('*').removeClass('borderererzzz shaderererzzz').css({
+    "outline": "inherit"
+});;

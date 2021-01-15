@@ -1,6 +1,7 @@
 var background = {
     selector: "",
     style: "",
+    color: "#FF0000",
     hoverChecked: false,
     init: function() {
 
@@ -11,11 +12,11 @@ var background = {
                 }
             });
 
-        chrome.tabs.onActivated.addListener(function(data) {
-          chrome.tabs.executeScript({
-              file: 'assets/js/outliner.js'
-          });
-        });
+        // chrome.tabs.onActivated.addListener(function(data) {
+        //   chrome.tabs.executeScript({
+        //       file: 'assets/js/outliner.js'
+        //   });
+        // });
     },
 
     setSelections: function(request, sender, sendResponse) {
@@ -24,14 +25,16 @@ var background = {
         // console.log('setting matched', request.matched);
         this.selector = request.selector; 
         this.style = request.style; 
+        this.color = request.color;
     },
 
     getSelector: function(request, sender, sendResponse) {
         // console.log('getting selector', this.selector);
         // console.log('getting style', this.style);
         // console.log('getting matched', this.matched);
-        sendResponse({selector: this.selector, style: this.style });
+        sendResponse({selector: this.selector, style: this.style, color: this.color });
     }
+    
 }
 
 background.init();

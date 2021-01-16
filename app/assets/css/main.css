@@ -229,7 +229,8 @@ body#jessieTheBody {
 /* response.style */
 
 .borderererzzz {
-  /* outline: 1px solid red !important; */
+  outline-width: 1px;
+  outline-style: solid;
 }
 .shaderererzzz {
   background-color: rgba(2, 2, 2, 0.2) !important;

@@ -41,6 +41,12 @@ function hoverItUp() {
     });
 }
 
+function updateColor() {
+    chrome.tabs.executeScript({
+        file: 'assets/js/updateColor.js'
+    });
+}
+
 document.getElementById('clearButton').addEventListener('click', removeClass);
 
 var app = {
@@ -155,18 +161,11 @@ var app = {
             $('.feature-styles input[type="checkbox"]:checked').each(function() {
                 currentStyle.push($(this).attr('id'));
             });
-            //turn array into a string
-            currentStyle = currentStyle.toString();
-            //remove array comma and replace with space
-            currentStyle = currentStyle.replace(/,/g, " ");
-            //console.log(currentStyle);
+
             var matched = "";
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, data: matched, color: getColor.value });
             //Runs contentscript so background respnonse will activate selectors on current page
             contentScript();
-
-
-
 
         });
 
@@ -180,15 +179,20 @@ var app = {
             $('.feature-styles input[type="checkbox"]:checked').each(function() {
                 currentStyle.push($(this).attr('id'));
             });
-            //turn array into a string
-            currentStyle = currentStyle.toString();
-            //remove array comma and replace with space
-            currentStyle = currentStyle.replace(/,/g, " ");
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, color:  getColor.value });
             //Runs allElements script so background respnonse will activate selectors on current page
             allElements();
         });
+
+        // Update Color when color picker is used
+        getColor.addEventListener('change', function() {
+            chrome.runtime.sendMessage({ fn: "setColor", color: getColor.value });
+            updateColor();
+        });
+
+        //Grab color and update global css element  when popup opens.
+        updateColor();
 
         //Removing Selectors
         removeSelectorsBtn.addEventListener('click', function() {

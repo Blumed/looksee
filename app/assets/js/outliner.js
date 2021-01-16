@@ -34,6 +34,7 @@ function toggleOutline(e) {
   $(e.toElement).toggleClass('borderererzzz');
 }
 
+
 function checkHover(request, sender, sendResponse) {
   if(request.hoverChecked) {
     $('body').append('<div class="looksee-hover"><span></span></div>');

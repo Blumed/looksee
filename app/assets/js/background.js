@@ -28,6 +28,10 @@ var background = {
         this.color = request.color;
     },
 
+    setColor: function(request, sender, sendResponse) {
+        this.color = request.color;
+    },
+
     getSelector: function(request, sender, sendResponse) {
         // console.log('getting selector', this.selector);
         // console.log('getting style', this.style);

@@ -1,8 +1,8 @@
 //Adds debuggerer class
 chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
-	//console.log(response.selector, response.style);
+    //console.log(response.selector, response.style);
+
     if(response.selector !== ""){
-        console.log(...response.style);
         Array.from(document.querySelectorAll(response.selector)).map(parts => parts.classList.add(...response.style));
     }
 
@@ -13,3 +13,4 @@ chrome.runtime.sendMessage({ fn: "getSelector" } , function(response) {
         document.body.appendChild(style);
     }
 });
+

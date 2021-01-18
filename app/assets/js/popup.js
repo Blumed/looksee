@@ -35,7 +35,7 @@ function removeClass() {
     });
 }
 
-function hoverItUp() {
+function addHover() {
     chrome.tabs.executeScript({
         file: 'assets/js/outliner.js'
     });
@@ -97,8 +97,6 @@ var app = {
                 window.close();
             }
 
-
-
             //set hover state in chrome local storage
             chrome.storage.local.set({
                 hoverChecked: hoverChecked
@@ -115,9 +113,8 @@ var app = {
             });
 
             // fire outliner
-            hoverItUp();
+            addHover();
         });
-
 
         //Adding Selectors
         chrome.runtime.sendMessage({ fn: "getSelector" }, function(response) {
@@ -171,7 +168,7 @@ var app = {
 
         //Sends border or shader style to all Elements on the page
         allSelectors.addEventListener('click', function() {
-            console.log('button click' + ' ' + customSelectors.value + ' ' + getColor.value);
+            // console.log('button click' + ' ' + customSelectors.value + ' ' + getColor.value);
             removeSelectorsBtn.focus();
 
             //iterates over checkbox and grabs the checked ones and puts them in a string inside of the array

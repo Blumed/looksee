@@ -12,11 +12,20 @@ var background = {
                 }
             });
 
-        // chrome.tabs.onActivated.addListener(function(data) {
-        //   chrome.tabs.executeScript({
-        //       file: 'assets/js/outliner.js'
-        //   });
-        // });
+        chrome.tabs.onActivated.addListener(function(data) {
+
+          chrome.tabs.executeScript(null, {
+              file: 'assets/js/outliner.js'
+          }, function() {
+            if (chrome.runtime.lastError) {
+               var errorMsg = chrome.runtime.lastError.message
+               if (errorMsg == "Cannot access a chrome:// URL") {
+                console.log('There is an internal Chrome url open. All other pages will excecute script.');
+               }
+            }
+        });
+        });
+
     },
 
     setSelections: function(request, sender, sendResponse) {
@@ -40,5 +49,6 @@ var background = {
     }
     
 }
+chrome.storage.local.set({hoverChecked: false});
 
 background.init();

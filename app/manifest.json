@@ -3,7 +3,7 @@
     "name": "Looksee",
     "description": "Add borders or shaders to your webpage on the fly. No need to write debug markup to fix layout components.",
     "default_locale": "en",
-    "version": "1.6.0",
+    "version": "1.5.3",
     "offline_enabled": true,
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "permissions": [

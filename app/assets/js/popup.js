@@ -128,6 +128,7 @@ var app = {
                 // console.log(currentStyle + '  ' + response.color );
                 customSelectors.value = response.selector;
                 currentStyle = response.style;
+                console.log(getColor);
                 getColor.value = response.color;
             }
         });

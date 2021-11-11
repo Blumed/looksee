@@ -3,7 +3,7 @@ chrome.storage.local.get('hoverChecked', function(request) {
 });
 
 function updateOutline(e) {
-  var $$ = $(e.toElement),
+  var $$ = $(e.target),
       eW = $$.outerWidth(),
       eH = $$.outerHeight(),
       eX = $$.offset().left,
@@ -30,13 +30,15 @@ function updateOutline(e) {
 
 function toggleOutline(e) {
   e.preventDefault();
-  $(e.toElement).toggleClass('borderererzzz');
+  console.log(e);
+  $(e.target).toggleClass('borderererzzz');
 }
 
 function checkHover(request, sender, sendResponse) {
   if(request.hoverChecked) {
     $('body').append('<div class="looksee-hover"><span></span></div>');
     document.addEventListener('mouseover', updateOutline);
+    console.log(updateOutline);
     $(document).bind('click', '*', toggleOutline);
   } 
   if (document.querySelector('.looksee-hover') !== null && !request.hoverChecked) {

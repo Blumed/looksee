@@ -1,49 +1,50 @@
-// Standard Google Universal Analytics code
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-81115441-1']);
-_gaq.push(['_trackPageview', '/options.html']);
-
-var console = chrome.extension.getBackgroundPage().console;
-
-(function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = 'https://ssl.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-})();
-
-
-var console = chrome.extension.getBackgroundPage().console;
-
 function contentScript() {
-    chrome.tabs.executeScript({
-        file: 'assets/js/contentScript.js'
+    chrome.tabs.query({ active: true }, function (tabs) {
+        let tabId = tabs[0];
+        chrome.scripting.executeScript({
+            files: ['assets/js/contentScript.js'],
+            target: {tabId: tabId.id}
+        });
     });
 }
 
 function allElements() {
-    chrome.tabs.executeScript({
-        file: 'assets/js/allElements.js'
+    chrome.tabs.query({ active: true }, function (tabs) {
+        let tabId = tabs[0];
+        chrome.scripting.executeScript({
+            files: ['assets/js/allElements.js'],
+            target: {tabId: tabId.id}
+        });
     });
 }
 
 function removeClass() {
-    chrome.tabs.executeScript({
-        file: 'assets/js/remove.js'
+    chrome.tabs.query({ active: true }, function (tabs) {
+        let tabId = tabs[0];
+        chrome.scripting.executeScript({
+            files: ['assets/js/remove.js'],
+            target: {tabId: tabId.id}
+        });
     });
 }
 
 function addHover() {
-    chrome.tabs.executeScript({
-        file: 'assets/js/outliner.js'
+    chrome.tabs.query({ active: true }, function (tabs) {
+        let tabId = tabs[0];
+        chrome.scripting.executeScript({
+            files: ['assets/js/outliner.js'],
+            target: {tabId: tabId.id}
+        });
     });
 }
 
 function updateColor() {
-    chrome.tabs.executeScript({
-        file: 'assets/js/updateColor.js'
+    chrome.tabs.query({ active: true }, function (tabs) {
+        let tabId = tabs[0];
+        chrome.scripting.executeScript({
+            files: ['assets/js/updateColor.js'],
+            target: {tabId: tabId.id}
+        });
     });
 }
 
@@ -63,27 +64,25 @@ var app = {
             storage = chrome.storage.local,
             removeCustomeSelectors = "",
         noMatches = "None";
+        const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 
         //Retrieve existing settings
-        $('*:checkbox').each(function(index, element) {
-            var name = this.name;
+        checkBoxes.forEach((element) => {
+            const name = element.name
             storage.get(name, function(items) {
                 element.checked = items[name]; // true  OR  false / undefined (=false)
             });
+            element.addEventListener('change', () => saveSettings(element))
         });
-
-        $('*:checkbox').on('change', saveSettings);
-
-        //Save or delete settings
-        function saveSettings() {
-            var name = this.name;
-            var items = {};
-            items[name] = this.checked;
-            storage.set(items, function() {
-                // console.log("saved");
-            });
-
+        
+        // //Save or delete settings
+        function saveSettings(element) {
+            let name = element.name;
+            let items = {};
+            items[name] = element.checked;
+            storage.set(items);
         }
+
         // check hover toggle
         this.hoverChecked = hoverToggle.checked;
 
@@ -118,73 +117,65 @@ var app = {
 
         //Adding Selectors
         chrome.runtime.sendMessage({ fn: "getSelector" }, function(response) {
-            //console.log("got selector" + response.selector);
             if (response === "") {
                 removeCustomeSelectors = response.selector;
                 noMatches = response.matched;
-                //console.log("you are here" + customSelectors.value);
             } else {
-                // var currentStyle = $('input[type="checkbox"]:checked').attr('id');
-                // console.log(currentStyle + '  ' + response.color );
                 customSelectors.value = response.selector;
                 currentStyle = response.style;
-                console.log(getColor);
                 getColor.value = response.color;
             }
         });
         
-
         //Pressing Enter on input field triggers click
-        $(customSelectors).on('keyup', function(e, customSelectors) {
-            if (e.which == 13) {
-                $(customSelectorsInput).trigger('click');
+        customSelectors.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                customSelectorsInput.click();
                 return false;
             }
         });
 
+        /* This is broken and needs to be fixed */
         //Pressing Enter on input checkbox field triggers click
-        $('input[type="checkbox"]').on('keyup', function(e, toggleShaders) {
-            if (e.which == 13) {
-                $('input[type="checkbox"]').trigger('click');
-                return false;
-            }
-        });
+        // $('input[type="checkbox"]').on('keyup', function(e, toggleShaders) {
+        //     if (e.which == 13) {
+        //         $('input[name="checkbox"]').trigger('click');
+        //         return false;
+        //     }
+        // });
 
         //Sends border or shader style to page
-        customSelectorsInput.addEventListener('click', function() {
-            //console.log('button click' + ' ' + customSelectors.value);
-
+        customSelectorsInput.addEventListener('click', () => {
             //iterates over checkbox and grabs the checked ones and puts them in a string inside of the array
-            var currentStyle = [];
-            $('.feature-styles input[type="checkbox"]:checked').each(function() {
-                currentStyle.push($(this).attr('id'));
-            });
+            let currentStyle = [];
+            document.querySelectorAll('.feature-styles input[type="checkbox"]:checked').forEach(element => {
+                currentStyle.push(element.id);
+            })
 
             var matched = "";
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, data: matched, color: getColor.value });
-            //Runs contentscript so background respnonse will activate selectors on current page
+            //Runs contentscript so background response will activate selectors on current page
             contentScript();
 
         });
 
         //Sends border or shader style to all Elements on the page
-        allSelectors.addEventListener('click', function() {
-            // console.log('button click' + ' ' + customSelectors.value + ' ' + getColor.value);
+        allSelectors.addEventListener('click', () => {
             removeSelectorsBtn.focus();
 
             //iterates over checkbox and grabs the checked ones and puts them in a string inside of the array
-            var currentStyle = [];
-            $('.feature-styles input[type="checkbox"]:checked').each(function() {
-                currentStyle.push($(this).attr('id'));
-            });
+            let currentStyle = [];
+            document.querySelectorAll('.feature-styles input[type="checkbox"]:checked').forEach(element => {
+                currentStyle.push(element.id);
+            })
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: customSelectors.value, style: currentStyle, color:  getColor.value });
-            //Runs allElements script so background respnonse will activate selectors on current page
+            //Runs allElements script so background response will activate selectors on current page
             allElements();
         });
 
         // Update Color when color picker is used
-        getColor.addEventListener('change', function() {
+        getColor.addEventListener('change', () => {
             chrome.runtime.sendMessage({ fn: "setColor", color: getColor.value });
             updateColor();
         });
@@ -193,17 +184,15 @@ var app = {
         updateColor();
 
         //Removing Selectors
-        removeSelectorsBtn.addEventListener('click', function() {
+        removeSelectorsBtn.addEventListener('click', () => {
             //Need to clear input field
-            // console.log('Clear was clicked');
             customSelectors.value = "";
             customSelectors.focus();
-            var currentStyle = $('button.is-active').attr('id');
-            //console.log('button click' + ' ' + customSelectors.value);
-            chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle, color: getColor.value });
-            // console.log('clear clicked');
+            let currentStyle = document.querySelector('button.is-active').getAttribute('id');
 
-            //Runs contentscript so background respnonse will activate selectors on current page
+            chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle, color: getColor.value });
+
+            //Runs contentscript so background response will activate selectors on current page
             removeClass();
         });
 

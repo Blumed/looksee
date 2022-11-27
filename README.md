@@ -36,7 +36,7 @@ Things to know:
 [ ] Escape keypress removes selected borders
 [ ] Add build system
 [ ] Convert extension to other browsers ( Firefox, Edge, Safari )
-[ ] Remove jQuery dependency
+[ X ] Remove jQuery dependency
 [ ] Add typescript
 [ ] Update assets in chrome store to reflect current UI
 [ ] Add more error handling

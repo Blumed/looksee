@@ -3,28 +3,25 @@ chrome.storage.local.get('hoverChecked', function(request) {
 });
 
 function updateOutline(e) {
-  var element = e.target,
+  const hoverElement = document.querySelector('.looksee-hover');
+  const hoverElementText = document.querySelector('.looksee-hover span');
+  let element = e.target,
       eW = element.clientWidth,
       eH = element.clientHeight,
       eX = element.getBoundingClientRect().left + window.scrollX,
       eY = element.getBoundingClientRect().top + window.scrollY,
-      hover = className('looksee-hover'),
-      tagName = element[0].tagName.toLowerCase(),
-      idName = element.attr('id') ? '#' + element.attr('id') : '',
-      className = function() {
-        return element.attr('class') ? '.' + element.attr('class').replace(' ', '.') : '';
-      },
+      className = () => element.getAttribute('class') ? '.' + element.getAttribute('class').replace(' ', '.') : '',
+      tagName = element.tagName.toLowerCase(),
+      idName = element.getAttribute('id') ? '#' + element.getAttribute('id') : '',
       hoverText = tagName + idName + className();
 
-  if(!element.hasClass('looksee-hover')) {
-    hover.css({
-      'top': eY,
-      'left': eX,
-      'width': eW,
-      'height': eH
-    });
+  if(!element.classList.contains('looksee-hover')) {
+    hoverElement.style.top = eY + 'px';
+    hoverElement.style.left = eX + 'px';
+    hoverElement.style.width = eW + 'px';
+    hoverElement.style.height = eH + 'px';
 
-    hover.find('span').text(hoverText);
+    hoverElementText.innerHTML = hoverText;
   }
 }
 
@@ -35,13 +32,13 @@ function toggleOutline(e) {
 
 function checkHover(request) {
   if(request.hoverChecked) {
-    $('body').append('<div class="looksee-hover"><span></span></div>');
+    document.body.innerHTML += '<div class="looksee-hover"><span></span></div>';
     document.addEventListener('mouseover', updateOutline);
-    $(document).bind('click', '*', toggleOutline);
+    document.addEventListener('click', toggleOutline);
   } 
   if (document.querySelector('.looksee-hover') !== null && !request.hoverChecked) {
     document.querySelector('.looksee-hover').remove();
     document.removeEventListener('mouseover', updateOutline);
-    $(document).unbind('click');
+    document.removeEventListener('click');
   }
 }

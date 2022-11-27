@@ -4,7 +4,7 @@
     "description": "This extension assists with layout debugging by enabling borders and shaders to dom nodes."
   },
   "appDesc": {
-    "message": "This extension assists with layout debugging by enabling borders and shaders to dom nodes.", 
-    "description":"This extension provides quick borders or shaders to any css selectors. The input field uses jQuery's sizzle selector library to easily travers the dom."
+    "message": "This extension assists with layout debugging by enabling borders and shaders to dom nodes.",
+    "description": "This extension provides quick borders or shaders to any css selectors."
   }
 }

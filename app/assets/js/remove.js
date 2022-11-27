@@ -4,4 +4,3 @@ document.querySelectorAll('.borderererzzz').forEach(className => {
 document.querySelectorAll('.shaderererzzz').forEach(className => {
     className.classList.toggle('shaderererzzz');
 });
-

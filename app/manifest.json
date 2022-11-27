@@ -1,16 +1,22 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Looksee",
     "description": "Add borders or shaders to your webpage on the fly. No need to write debug markup to fix layout components.",
     "default_locale": "en",
     "version": "1.5.5",
     "offline_enabled": true,
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "externally_connectable": {
+        "matches": [
+            "*://*/*"
+        ]
+    },
     "permissions": [
         "tabs",
-        "<all_urls>",
         "storage",
-        "*://localhost/*"
+        "scripting"
     ],
     "content_scripts": [
         {
@@ -21,7 +27,6 @@
                 "assets/css/main.css"
             ],
             "js": [
-                "assets/js/vendor/jquery-2.2.3.min.js",
                 "assets/js/contentScript.js",
                 "assets/js/outliner.js"
             ],
@@ -30,12 +35,9 @@
         }
     ],
     "background": {
-        "persistent": true,
-        "scripts": [
-            "assets/js/background.js"
-        ]
+        "service_worker": "background.js"
     },
-    "browser_action": {
+    "action": {
         "default_icon": "assets/images/icon128.png",
         "default_popup": "popup.html"
     },

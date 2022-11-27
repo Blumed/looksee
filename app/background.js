@@ -1,4 +1,4 @@
-var background = {
+let background = {
     selector: "",
     style: "",
     color: "#FF0000",
@@ -12,23 +12,27 @@ var background = {
                 }
             });
 
-        chrome.tabs.onActivated.addListener(function(data) {
+        chrome.tabs.onActivated.addListener(() => {
 
-          chrome.tabs.executeScript(null, {
-              file: 'assets/js/outliner.js'
-          }, function() {
-            if (chrome.runtime.lastError) {
-               var errorMsg = chrome.runtime.lastError.message
-               if (errorMsg == "Cannot access a chrome:// URL") {
-                console.log('There is an internal Chrome url open. All other pages will excecute script.');
-               }
-            }
+        chrome.tabs.query({ active: true }, function (tabs) {
+            let tabId = tabs[0];
+            chrome.scripting.executeScript({
+              files: ['assets/js/outliner.js'],
+              target: {tabId: tabId.id}
+            }, () => {
+                if (chrome.runtime.lastError) {
+                    let errorMsg = chrome.runtime.lastError.message
+                if (errorMsg == "Cannot access a chrome:// URL") {
+                    console.log('There is an internal Chrome url open. All other pages will excecute script.');
+                }
+                }
+            })
         });
-        });
+    });
 
     },
 
-    setSelections: function(request, sender, sendResponse) {
+    setSelections: function(request,sender, sendResponse) {
         // console.log('setting selectors', request.selector);
         // console.log('setting style', request.style);
         // console.log('setting matched', request.matched);

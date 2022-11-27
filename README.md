@@ -2,6 +2,7 @@
 
 <hr>
 
+
 Type in class's, id's, element's, anything that you would use in a `$('Selector')` to have a quick looksee at your layout. The idea here is to add borders and shaders on the fly.  You could add the styles and markup to your project and remove it later, but why do that when you could quickly target the markup you need to see. 
 
 Head to your favorite webpage and try these on for size:

@@ -188,7 +188,11 @@ var app = {
             //Need to clear input field
             customSelectors.value = "";
             customSelectors.focus();
-            let currentStyle = document.querySelector('button.is-active').getAttribute('id');
+            
+            let currentStyle = [];
+            document.querySelectorAll('.feature-styles input[type="checkbox"]:checked').forEach(element => {
+                currentStyle.push(element.id);
+            })
 
             chrome.runtime.sendMessage({ fn: "setSelections", selector: removeCustomeSelectors, style: currentStyle, color: getColor.value });
 
@@ -200,12 +204,3 @@ var app = {
 }
 
 app.init();
-
-//Tracking Events on Buttons and Inputs
-function trackButtonClicked(e) {
-    _gaq.push(['_trackEvent', e.target.id, 'clicked']);
-};
-var trackingSelectors = document.querySelectorAll('button, input');
-for (var i = 0; i < trackingSelectors.length; i++) {
-    trackingSelectors[i].addEventListener('click', trackButtonClicked);
-}

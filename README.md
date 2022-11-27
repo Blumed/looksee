@@ -1,8 +1,6 @@
 <p align="center"><img src="https://github.com/Blumed/looksee/blob/master/resources/promo440.png"></p>
 
 <hr>
-![](https://img.shields.io/badge/build-passing-green.svg)
-![](https://img.shields.io/badge/looksee-v1.4.0-orange.svg)
 
 Type in class's, id's, element's, anything that you would use in a `$('Selector')` to have a quick looksee at your layout. The idea here is to add borders and shaders on the fly.  You could add the styles and markup to your project and remove it later, but why do that when you could quickly target the markup you need to see. 
 
@@ -28,10 +26,17 @@ Things to know:
 
 ##Future Features
 
-- Ability to add multiple input fields and for each one to have a custom color.
-- Better UI.
-- Make a website for this here extension
-- Figure out a solution for applying box-shadow to an image
-- Connect options page for more user prefrences
-- Toggle borders on while hovering
-- Add help link to options page
+[ ] Ability to add multiple input fields and for each one to have a custom color.
+[ ] Better UI.
+[ ] Make a website for this here extension
+[ ] Figure out a js solution for applying box-shadow to an image
+[ ] Connect options page for more user prefrences
+[ ] Toggle borders on while hovering
+[ ] Add help link to options page
+[ ] Escape keypress removes selected borders
+[ ] Add build system
+[ ] Convert extension to other browsers ( Firefox, Edge, Safari )
+[ ] Remove jQuery dependency
+[ ] Add typescript
+[ ] Update assets in chrome store to reflect current UI
+[ ] Add more error handling

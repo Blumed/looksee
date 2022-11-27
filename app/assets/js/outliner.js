@@ -3,20 +3,20 @@ chrome.storage.local.get('hoverChecked', function(request) {
 });
 
 function updateOutline(e) {
-  var $$ = $(e.target),
-      eW = $$.outerWidth(),
-      eH = $$.outerHeight(),
-      eX = $$.offset().left,
-      eY = $$.offset().top,
-      hover = $('.looksee-hover'),
-      tagName = $$[0].tagName.toLowerCase(),
-      idName = $$.attr('id') ? '#' + $$.attr('id') : '',
+  var element = e.target,
+      eW = element.clientWidth,
+      eH = element.clientHeight,
+      eX = element.getBoundingClientRect().left + window.scrollX,
+      eY = element.getBoundingClientRect().top + window.scrollY,
+      hover = className('looksee-hover'),
+      tagName = element[0].tagName.toLowerCase(),
+      idName = element.attr('id') ? '#' + element.attr('id') : '',
       className = function() {
-        return $$.attr('class') ? '.' + $$.attr('class').replace(' ', '.') : '';
+        return element.attr('class') ? '.' + element.attr('class').replace(' ', '.') : '';
       },
       hoverText = tagName + idName + className();
 
-  if(!$$.hasClass('looksee-hover')) {
+  if(!element.hasClass('looksee-hover')) {
     hover.css({
       'top': eY,
       'left': eX,
@@ -30,10 +30,10 @@ function updateOutline(e) {
 
 function toggleOutline(e) {
   e.preventDefault();
-  $(e.target).toggleClass('borderererzzz');
+  e.target.classList.toggle('borderererzzz')
 }
 
-function checkHover(request, sender, sendResponse) {
+function checkHover(request) {
   if(request.hoverChecked) {
     $('body').append('<div class="looksee-hover"><span></span></div>');
     document.addEventListener('mouseover', updateOutline);
